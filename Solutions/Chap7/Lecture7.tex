@@ -1,0 +1,147 @@
+\documentclass{article}
+\usepackage{CJKutf8}%导入CJKutf8包,并且激活中文、日文、韩文的uft8编码
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\begin{document}
+
+\begin{CJK*}{UTF8}{gbsn}
+
+\section{}
+
+(1)$\forall x \exists y \forall z \exists u. P(x,y,z,u)$
+
+(2)$\forall x \exists z \exists u. P(x,f(x),z,u)$,这里$f$为一元新函数.
+
+(3)$\forall x \forall z P(x,f(x),z,g(x,z))$,这里$g$为二元新函数。
+
+这是原式子的Skolem范式.
+
+
+\section{}
+
+(1)$(\forall x P(x) \land \forall y Q(y)) \rightarrow \exists z P(z)$
+
+(2)$\neg (\forall x P(x) \land \forall y Q(y) \lor \exists z P(z)$
+
+(3)$\neg \forall x P(x) \land \neg \forall y Q(y) \lor \exists z P(z)$
+
+(4)$ \exists x \neg P(x) \land \exists y \neg Q(y) \lor \exists z P(z)$
+
+(5)$ \exists x \exists y \exists z (\neg P(x) \lor \neg Q(y)) \land  P(z))$
+
+(6)$ \exists x \exists y \exists z (\neg P(x) \land \neg Q(y)) \rightarrow  P(z))$
+
+(6)中的原式的前束型范式.
+
+
+
+\section{}
+
+由定义即得.
+
+
+\section{}
+
+证：设$m$为任何model
+
+设 $m \vDash \exists x \forall y P(x,y)$,以下证明
+
+$m \vDash \forall y \exists x  P(x,y)$
+
+$m \vDash \exists x \forall y P(x,y) \Rightarrow$
+
+存在$a \in M$ 对任何$b\in M$, 有$<a,b>\in P_M \Rightarrow$
+
+对任何$b\in M$, 有$a\in M <a,b>\in P_M\Rightarrow m\vDash \forall y \exists x  P(x,y)$
+
+
+\section{}
+证：欲证, $\nvDash \forall x \exists x  P(x,y) \rightarrow \forall y \exists x  P(x,y)$
+
+只需构作$m$使 $m \vDash \forall x \exists y  P(x,y)$ ...(*)
+
+但$m \nvDash \exists y \forall x P(x,y)$ ...(**)
+
+令$m = (N, <) ,$这里$P_M =\{(a,b)| a<b\}$
+
+易见(*),(**)成立。
+
+
+\section{}
+证：设$m$为任何model
+
+因为$m \vDash \forall x P(x,f(f)) \Rightarrow$
+
+对任何$a\in M . <a,f_M(a)>\in P \Rightarrow$
+
+对任何$a\in M $有$b \in M$使$<a,b>\in P$
+
+$\Rightarrow m \vDash \forall x \exists y  P(x,y)$
+
+所以$m \vDash \forall x P(x,f(x)) \rightarrow \forall x \exists y  P(x,y)$
+
+\section{}
+
+证：$ \forall x \exists y  P(x,y) $可满足$<a,b>\in P_M \Rightarrow$
+
+\{ 由AC知,存在$\tau : \mathcal{P} (M) -\{\phi\} \rightarrow M$使对$Z \subseteq M$,且$Z \neq \phi, \tau(Z) \in Z.$\}
+
+
+对任何$a\in M$, $M_a = \{b|<a,b>\in P_M\} \neq \phi \Rightarrow$
+
+对任何$a\in M$, $\tau(M_a) \in M_a \Rightarrow$
+
+对任何$a\in M$, $<a,\tau(M_a)> \in P_M \Rightarrow$
+
+\{令$f_M=\{<a,\tau(M_a)>|a \in M\}$\}
+
+$m^{'} \vDash \forall x P(x,f(x)) ,$这里$m^{'} = m +f_M$
+
+
+\section{}
+
+解：8.1 $A$ 为$P(f(c))$
+
+$H_0=\{c\}$
+
+$H_1= H_0 \cup \{f(t)|t\in H_0\}= \{c\}\cup \{f(c)\} =\{c,f(c)\}$
+
+$H_2=\{c,f(c),f^2(c)\}$
+
+...
+
+$H_n=\{c,f(c),...,f^n(c)\}$
+
+$H=\{f^n(c)|n \in N\}$
+
+
+\section{}
+证：对$n$归纳证明$H_n$有穷
+
+Basis.$n=0, H_0=\{c_0\}$或$\{c|c$为$\alpha$中常元$\}$
+
+易见$H_n$有穷
+
+I.H. $H_n$有穷
+
+I. step $H_{n+1} = H_n \cup \{ f(t_1,...,t_k)|t_i \in H_n$
+
+且$f$ 为$\alpha $中$k$元素\}
+
+$|H_{n+1}| \leq |H_n| +|\{f|f$为$\alpha$中函数\}$\times H_n$
+
+$< \aleph_0 +\aleph_0 \cdot \aleph_0 =\aleph_0$
+
+又因为$\aleph_0\leq |H| \leq \aleph_0 \cdot \aleph_0 =\aleph_0$
+
+所以 $\aleph_0 = |H|$
+
+
+
+\end{CJK*}
+
+\begin{CJK*}{UTF8}{bsmi}
+\end{CJK*}
+
+\end{document}
