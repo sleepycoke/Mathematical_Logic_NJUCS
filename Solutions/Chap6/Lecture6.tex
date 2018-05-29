@@ -1,0 +1,144 @@
+\documentclass{article}
+\usepackage{CJKutf8}%导入CJKutf8包，并且激活中文、日文、韩文的uft8编码
+
+\begin{document}
+
+\begin{CJK*}{UTF8}{gbsn}
+
+\section{}
+
+\subsection{}
+
+反设 Incon($\Phi$)，则有在有公式集$S \subseteq \Phi \cap \Psi$ 使 $S \vdash$ 可证， 
+
+因为 $S \subseteq \Phi $ 所以$In con(\Phi)$ 与 $con (\Phi)$ 矛盾。
+
+
+\subsection{}
+情况a，当$\Phi = \Psi$ 时， 1.2 成立。
+
+情况b，当$\Phi = \{ p(a)\}$, $\Phi = \{ \urcorner p(a) \}$
+
+这里 $P $为一元谓词, $a$为常元，易见$con ({\Phi})$，且$con ({\Psi})$，但$Incon (\Psi \cup \Phi)$.
+\section{}
+\subsection{}
+因为 $A , A \rightarrow B \vdash$, 可证，又$A,A\rightarrow B \in \Phi$
+
+所以 由命题9.7知$B \in \Phi$
+
+\subsection{}
+因为 $\forall x. A \vdash A [\frac{t}{x}]$ 可证
+
+所以 由命题9.7克制$A [\frac{t}{x}]\in \Phi$
+
+\section{}
+设 $\Phi$ 为$\mathcal{L}$的公式集且$con(\Phi)$,
+
+令$\mathcal{L}$ 的全体公式集为$\{\varphi_n | n \in N\}$.
+
+令$\Gamma_0 = \Phi$
+
+\begin{equation*}
+\Gamma_{n+1} = \left\{ {\begin{array}{*{20}{c}}
+{\Gamma_n \cup \{\varphi_n\}}&{con (\Gamma\cup \{\varphi_n\})}\\
+\Gamma_n&{con ( \urcorner \Gamma\cup \{\varphi_n\})}
+\end{array}} \right.
+\end{equation*}
+
+$\Gamma = \cup_{n\in N} \Gamma_n$, 以下证明
+
+（1）$\Phi \in \Gamma$, 即$\Gamma$为$\Phi$的扩展，易见，
+
+（2）$con(\Gamma)$,对n 作归纳易见$con(\Gamma_n)$
+
+而$\Gamma_0 \subseteq \Gamma_1 \subseteq ... \subseteq \Gamma_n \subseteq ...$ 因此 $con(\Gamma)$.
+
+（3）$\Gamma$为极大协调，即若$con(\Gamma,\varphi_n)$，则$\varphi \in \Gamma$ 
+
+设$con(\Gamma,\varphi_n)$。
+
+case1. $con(\Gamma_n,\varphi_n)$,从而$\varphi_n \in \Gamma_{n+1}$,故$\varphi_n \in \Gamma$
+
+case2. $\urcorner con(\Gamma_n,\varphi_n)$ 从而与$con(\Gamma,\varphi_n)$矛盾，此情况不成立。
+
+因此$\Gamma$ 为$\Phi$ 的扩张且$\Gamma$ 是极大协调的。
+
+\section{}
+
+\subsection{}
+令 $P(x)$ 为$x \doteq S$
+
+从而$S \doteq t , P(s) \vdash P(t)$可证，事实上为公理。
+
+即$S \doteq t , S\doteq S \vdash t\doteq S$可证
+
+又$\vdash S\doteq S$可证 
+
+故$S\doteq t \vdash t\doteq S$可证
+
+因此 $\vdash (S\doteq t )\rightarrow (t \doteq s)$ 可证
+
+\subsection{}
+
+令 $P(x)$ 为 $c \doteq u$ ,从而 
+
+$t\doteq S , P(t) \vdash P(S)$ 可证，即
+
+$t\doteq S , t \doteq u \vdash s\doteq u$, 可证 又 $S \doteq t , \vdash t \doteq s$, 可证
+
+故 $S\doteq t , t \doteq u \vdash s\doteq u$ 可证，从而
+
+$\vdash (S \doteq t)\rightarrow ((t \doteq u)\rightarrow(s\doteq u))$可证
+
+\section{}
+
+因为$||\mathcal{L}|| = \aleph_0$
+
+所以$||\mathcal{T}erm|| = \aleph_0$，$||\mathcal{F}ormula|| = \aleph_0$
+
+因为$\Phi{L}$ 又model
+
+$\Rightarrow con(\Phi)$
+
+$\Rightarrow$存在$\Psi \leq \Phi$ 使 $||\Psi|| \leq \aleph_0$ ,且 $\Psi$为 Henkin集。
+
+$\Rightarrow$存在$\Psi \leq \Phi$ 使 $||\Psi|| \leq \aleph_0$ ,且 $\Psi$为 Hintikka集。
+
+$\Rightarrow$存在$\Psi \leq \Phi$ 使 $||\Psi|| \leq \aleph_0$ ,且 $\Psi$有 model其域势$\leq \aleph_0$。
+
+$\Rightarrow$ $\Phi$有model其域势$\leq \aleph_0$。
+
+\section{}
+因为 $\Gamma , A\frac{c}{x} \vDash B$
+
+ $\Rightarrow \Gamma , A\frac{c}{x} \vdash B$ 可证
+
+$\Rightarrow \Gamma , A\frac{c}{x} \vdash B$ 有证明树$T(c)$
+
+$\Rightarrow \Gamma , A\frac{y}{x} \vdash B$ 有证明树$T(y)$
+
+这里$T(y)$为在$T(c)$中由$y$势$c$而得$y$为新变元。
+
+$\Rightarrow$ 从而$\Gamma , \exists xA\vdash B$可证
+
+$\Rightarrow \Gamma  , \exists xA\vdash$可证
+
+\section{}
+
+(1),(3),(4)反例
+
+(2)可证
+
+\end{CJK*}
+
+\vspace{0.5cm} % A white space
+
+\noindent
+
+\vspace{0.5cm}
+
+\noindent
+\begin{CJK*}{UTF8}{bsmi}
+\end{CJK*}
+
+\end{document}
