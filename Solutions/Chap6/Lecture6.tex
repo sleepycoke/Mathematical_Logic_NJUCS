@@ -1,144 +1,258 @@
 \documentclass{article}
-\usepackage{CJKutf8}%导入CJKutf8包，并且激活中文、日文、韩文的uft8编码
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{enumerate}
+\usepackage{amsthm}
+\usepackage{bussproofs}
+\usepackage{hyperref}
 
+\renewcommand{\today}{\number\year 年 \number\month 月 \number\day 日}
+
+\setlength\parindent{0pt}
+\vspace{-8ex}
+%\date{}
 \begin{document}
 
 \begin{CJK*}{UTF8}{gbsn}
-
+\title{数理逻辑第六讲习题参考答案\footnote{Ver. 1.0. 原答案由宋方敏教授给出手稿, 乔羽同学录入, 最后由丁超同学修订补充. 此文档来源为\mbox{\url{https://github.com/sleepycoke/Mathematical_Logic_NJUCS}},
+ 欢迎各位同学提出意见共同维护. 
+}}
+\maketitle
 \section{}
 
 \subsection{}
+\begin{proof}[\emph{证明: }]	
+设 $\Gamma := \Phi \cap \Psi $.  
 
-反设 Incon($\Phi$)，则有在有公式集$S \subseteq \Phi \cap \Psi$ 使 $S \vdash$ 可证， 
+反设 $Incon(\Gamma$), 则存在非空有穷公式集 $\Delta \subseteq \Gamma$ 使 $\Delta \vdash$ 可证.  
 
-因为 $S \subseteq \Phi $ 所以$In con(\Phi)$ 与 $con (\Phi)$ 矛盾。
+因为 $\Delta \subseteq \Phi $ 所以 $Incon(\Phi)$, 与 $Con (\Phi)$ 矛盾. 
+\end{proof}
 
 
 \subsection{}
-情况a，当$\Phi = \Psi$ 时， 1.2 成立。
+由于等词的存在, 我们可以确保公式集非空. 
 
-情况b，当$\Phi = \{ p(a)\}$, $\Phi = \{ \urcorner p(a) \}$
+设$A$为任一公式,
+$\Phi := \{ A\}$, $\Psi := \{  \neg A \}$. 
 
-这里 $P $为一元谓词, $a$为常元，易见$con ({\Phi})$，且$con ({\Psi})$，但$Incon (\Psi \cup \Phi)$.
+易见 $Con ({\Phi})$且 $Con ({\Psi})$, 但 $Incon (\Phi \cup \Psi)$.
+
 \section{}
 \subsection{}
-因为 $A , A \rightarrow B \vdash$, 可证，又$A,A\rightarrow B \in \Phi$
+\begin{proof}[\emph{证明: }]
+因为 $A , A \rightarrow B \vdash$, 可证; 
 
-所以 由命题9.7知$B \in \Phi$
+又 $A,A\rightarrow B \in \Phi$, 
+由命题6.7知 $B \in \Phi$. 
+\end{proof}
 
 \subsection{}
-因为 $\forall x. A \vdash A [\frac{t}{x}]$ 可证
+\begin{proof}[\emph{证明: }]
 
-所以 由命题9.7克制$A [\frac{t}{x}]\in \Phi$
+因为 $\forall x. A \vdash A [\frac{t}{x}]$ 可证. 
 
+所以, 由命题6.7可知 $A [\frac{t}{x}]\in \Phi$. 
+\end{proof}
+
+\begin{samepage}
 \section{}
-设 $\Phi$ 为$\mathcal{L}$的公式集且$con(\Phi)$,
+\begin{proof}[\emph{证明: }]
 
-令$\mathcal{L}$ 的全体公式集为$\{\varphi_n | n \in N\}$.
+首先注意根据本书的定义, 一阶语言都是可数的. 那么
+设 $\Phi$为$\mathscr{L}$的公式集且$Con(\Phi)$, 
+令$\mathscr{L}$的全体公式集为 $\{\varphi_n | n \in N\}$,
 
-令$\Gamma_0 = \Phi$
+$$\Gamma_0 := \Phi$$
 
 \begin{equation*}
-\Gamma_{n+1} = \left\{ {\begin{array}{*{20}{c}}
-{\Gamma_n \cup \{\varphi_n\}}&{con (\Gamma\cup \{\varphi_n\})}\\
-\Gamma_n&{con ( \urcorner \Gamma\cup \{\varphi_n\})}
+\Gamma_{n+1} := \left\{ {\begin{array}{*{20}{c}}
+{\Gamma_n \cup \{\varphi_n\}}&{Con (\Gamma\cup \{\varphi_n\})}\\
+\Gamma_n&{Incon ( \Gamma\cup \{\varphi_n\})}
 \end{array}} \right.
 \end{equation*}
 
-$\Gamma = \cup_{n\in N} \Gamma_n$, 以下证明
+$$\Gamma := \cup_{n\in N} \Gamma_n,$$
 
-（1）$\Phi \in \Gamma$, 即$\Gamma$为$\Phi$的扩展，易见，
+以下证明
+\begin{enumerate}[(1)]
 
-（2）$con(\Gamma)$,对n 作归纳易见$con(\Gamma_n)$
+	\item $\Phi \subseteq \Gamma$, 即$\Gamma$为$\Phi$的扩张, 易见. 
 
-而$\Gamma_0 \subseteq \Gamma_1 \subseteq ... \subseteq \Gamma_n \subseteq ...$ 因此 $con(\Gamma)$.
+	\item $Con(\Gamma)$. 对$n$作归纳易见$Con(\Gamma_n)$. 
 
-（3）$\Gamma$为极大协调，即若$con(\Gamma,\varphi_n)$，则$\varphi \in \Gamma$ 
+若$Incon(\Gamma)$那么存在有穷集$\Delta \subseteq \Gamma$使得$\Delta \vdash$可证. 注意到对于任意$\psi \in \Delta$, 存在$k\in \mathbb{N}$使得$\psi \in \Gamma_k$, 也就是有函数$f : \Delta \rightarrow \mathbb{N}$, $f(\psi) = k$. 取$m := \max\{f(\psi)|\psi \in \Delta\}$, 从而$\Delta \subseteq \Gamma_{m}$. 于是$Incon(\Gamma_{m})$, 矛盾. 
 
-设$con(\Gamma,\varphi_n)$。
 
-case1. $con(\Gamma_n,\varphi_n)$,从而$\varphi_n \in \Gamma_{n+1}$,故$\varphi_n \in \Gamma$
+ 因此 $Con(\Gamma)$.
 
-case2. $\urcorner con(\Gamma_n,\varphi_n)$ 从而与$con(\Gamma,\varphi_n)$矛盾，此情况不成立。
+	\item $\Gamma$为极大协调. 即若$Con(\Gamma \cup \{\varphi_n\})$，则$\varphi_n \in \Gamma$.
 
-因此$\Gamma$ 为$\Phi$ 的扩张且$\Gamma$ 是极大协调的。
+设$Con(\Gamma \cup \{\varphi_n\})$.
+
+Case1. $Con(\Gamma_n \cup \{\varphi_n\})$, 从而$\varphi \in \Gamma_n \cup \{\varphi_n\} =\Gamma_{n+1} $. 又$\Gamma_{n+1} \subseteq \Gamma$, 有$\varphi \in \Gamma$
+
+Case2. $Incon(\Gamma_n \cup \{\varphi_n\})$, 从而有穷集$\Delta \subseteq \Gamma_n$使得$\Delta, \varphi \vdash$可证.又$\Delta \subseteq \Gamma$, 有$Incon(\Gamma \cup \{\varphi_n\})$, 矛盾.
+\end{enumerate}
+
+因此$\Gamma$为$\Phi$的扩张且$\Gamma$是极大协调的.
+\end{proof}
+\end{samepage}
 
 \section{}
 
 \subsection{}
-令 $P(x)$ 为$x \doteq S$
+\begin{proof}[\emph{证明: }]
 
-从而$S \doteq t , P(s) \vdash P(t)$可证，事实上为公理。
+令$P(x)$为$x \doteq s$.
 
-即$S \doteq t , S\doteq S \vdash t\doteq S$可证
+从而$s \doteq t , P(s) \vdash P(t)$可证, 事实上为公理(定义6.10(3)).
 
-又$\vdash S\doteq S$可证 
+即$s \doteq t , s\doteq s \vdash t\doteq s$可证. 
 
-故$S\doteq t \vdash t\doteq S$可证
+又$\vdash s\doteq s$可证.
 
-因此 $\vdash (S\doteq t )\rightarrow (t \doteq s)$ 可证
+故$s\doteq t \vdash t\doteq s$可证(由前两条Cut得). 
+
+因此 $\vdash (s\doteq t )\rightarrow (t \doteq s)$可证(对上条使用$\rightarrow R$). 
+\end{proof}
 
 \subsection{}
+\begin{proof}[\emph{证明: }]
 
-令 $P(x)$ 为 $c \doteq u$ ,从而 
+令 $P(x)$为$c \doteq u$, 
 
-$t\doteq S , P(t) \vdash P(S)$ 可证，即
+从而
+$t\doteq s , P(t) \vdash P(s)$可证, 
 
-$t\doteq S , t \doteq u \vdash s\doteq u$, 可证 又 $S \doteq t , \vdash t \doteq s$, 可证
+即$t\doteq s , t \doteq u \vdash s\doteq u$, 可证. 
 
-故 $S\doteq t , t \doteq u \vdash s\doteq u$ 可证，从而
+又 $s \doteq t \vdash t \doteq s$ 可证,
 
-$\vdash (S \doteq t)\rightarrow ((t \doteq u)\rightarrow(s\doteq u))$可证
+故 $s\doteq t , t \doteq u \vdash s\doteq u$ 可证(由前两条Cut得), 
 
+从而
+$\vdash (s \doteq t)\rightarrow ((t \doteq u)\rightarrow(s\doteq u))$可证(对上条使用两次$\rightarrow R$). 
+\end{proof}
 \section{}
+\begin{proof}[\emph{证明: }]
 
-因为$||\mathcal{L}|| = \aleph_0$
+因为$||\mathscr{L}|| = \aleph_0$(注：事实上按书上定义的一阶语言都是可数的)
 
-所以$||\mathcal{T}erm|| = \aleph_0$，$||\mathcal{F}ormula|| = \aleph_0$
+所以$||\mathcal{T}erm|| = \aleph_0$, $||\mathcal{F}ormula|| = \aleph_0$. 
+令$\mathscr{L'} := \mathscr{L} \cup \{c_n | n \in \mathbb{N}\}$,
 
-因为$\Phi{L}$ 又model
+$\Phi$\text{有模型}
+$\Rightarrow Con(\Phi)$
+$\Rightarrow \text{存在}\Phi\text{在}\mathscr{L'}\text{中的Henkin集扩张}\Psi. $\text{(定理6.17)}. 
 
-$\Rightarrow con(\Phi)$
+又$\Psi$是Hintikka集(定理6.18), 可根据定义3.11和引理3.33找到$\Psi$的一个$\mathscr{L'}$中的可数模型$\mathbb{H}$. 由于$\Phi \subseteq \Psi$, $\mathbb{H}$也同时满足了$\Phi$中的所有公式. 那么我们最后只要定义$\mathbb{M}$为$\mathbb{H}$去掉$\mathscr{L'} \backslash \mathscr{L}$中额外加入的常元的解释后得到的结构, $\mathbb{M}$就是$\Phi$的一个(在$\mathscr{L}$中的)可数模型. 
+\end{proof}
 
-$\Rightarrow$存在$\Psi \leq \Phi$ 使 $||\Psi|| \leq \aleph_0$ ,且 $\Psi$为 Henkin集。
-
-$\Rightarrow$存在$\Psi \leq \Phi$ 使 $||\Psi|| \leq \aleph_0$ ,且 $\Psi$为 Hintikka集。
-
-$\Rightarrow$存在$\Psi \leq \Phi$ 使 $||\Psi|| \leq \aleph_0$ ,且 $\Psi$有 model其域势$\leq \aleph_0$。
-
-$\Rightarrow$ $\Phi$有model其域势$\leq \aleph_0$。
-
+此问题有更一般的结果，参见 L\"owenheim-Skolem Theorem. 
 \section{}
-因为 $\Gamma , A\frac{c}{x} \vDash B$
+\begin{proof}[\emph{证明: }]
 
- $\Rightarrow \Gamma , A\frac{c}{x} \vdash B$ 可证
+$\Gamma , A[\frac{c}{x}] \models B$
 
-$\Rightarrow \Gamma , A\frac{c}{x} \vdash B$ 有证明树$T(c)$
+ $\Rightarrow \Gamma , A[\frac{c}{x}] \vdash B$可证(完全性). 
 
-$\Rightarrow \Gamma , A\frac{y}{x} \vdash B$ 有证明树$T(y)$
+$\Rightarrow \Gamma , A[\frac{c}{x}] \vdash B$ 有证明树, 设为$T(c)$. 
 
-这里$T(y)$为在$T(c)$中由$y$势$c$而得$y$为新变元。
+$\Rightarrow \Gamma , A[\frac{y}{x}] \vdash B$ 有证明树$T(y)$. 
 
-$\Rightarrow$ 从而$\Gamma , \exists xA\vdash B$可证
+这里$T(y)$为在$T(c)$中由$y$替换$c$而得, 且$y$为新变元. 理由同命题10.10. 可由结构归纳得. 
 
-$\Rightarrow \Gamma  , \exists xA\vdash$可证
+$\Rightarrow\Gamma , \exists xA\vdash B$可证(规则$\exists L$). 
 
+$\Rightarrow \Gamma  , \exists xA\models B$(有效性). 
+\end{proof}
 \section{}
+本题借用了LK中的$WL,WR$规则, 其定义参见定义10.6, 在G中的正确性由命题4.12保证. 
+\begin{enumerate}[(1)]
+\item 反例: $M:=\{0,1\}$, $P_M:=\{0\}$. 
+\item 
+		
+\begin{proof}[\emph{证明: }] ~
+\begin{prooftree}
+\AxiomC{$Q(z), P(z)\vdash Q(z)$}
+\RightLabel{$\rightarrow R$}
 
-(1),(3),(4)反例
+\UnaryInfC{$ Q(z)\vdash P(z)\rightarrow Q(z) $}
+\RightLabel{$WL$}
+\UnaryInfC{$ \forall y Q(y) , Q(z) \vdash P(z) \rightarrow Q(z)$}
+\RightLabel{$\forall L, \forall R$}
+\UnaryInfC{$\forall y Q(y) \vdash \forall x (P(x) \rightarrow Q(x))$}
 
-(2)可证
+\AxiomC{$P(z)\vdash Q(z), P(z)$}
+\RightLabel{$\rightarrow R$}
+\UnaryInfC{$\vdash P(z) \rightarrow Q(z), P(z)$}
+\RightLabel{$WR$}
+\UnaryInfC{$\vdash P(z) \rightarrow Q(z), P(z),\exists x P(x)$}
+\RightLabel{$\exists R, \forall R$}
+\UnaryInfC{$\vdash \forall x(P(x) \rightarrow Q(x)), \exists x P(x)$}
+
+\RightLabel{$\rightarrow L$}
+\BinaryInfC{$\exists x P(x) \rightarrow \forall yQ(y) \vdash \forall x(P(x) \rightarrow Q(x))$}
+\RightLabel{$\rightarrow R$}
+\UnaryInfC{$\vdash (\exists x P(x) \rightarrow \forall yQ(y)) \rightarrow (\forall x(P(x) \rightarrow Q(x))$}
+\end{prooftree}
+%这里$z$是新变元. 不必说明
+\end{proof}
+
+
+
+
+\item 反例: $M:=\{0,1\}$, $P_M:= Q_M := \{0\}$. 
+
+\item 
+\begin{proof}[\emph{证明: }]
+设$A$为任一公式, 我们有:
+\begin{prooftree}
+\AxiomC{$\neg A\vdash \neg A$}
+\AxiomC{$A\vdash A$}
+\RightLabel{$\neg R$}
+\UnaryInfC{$\vdash A, \neg A$}
+\RightLabel{$\rightarrow L$}
+\BinaryInfC{$A \rightarrow \neg  A \vdash \neg A$}
+
+\AxiomC{$A\vdash A$}
+\AxiomC{$A\vdash A$}
+\RightLabel{$\neg R$}
+\UnaryInfC{$\vdash A, \neg A$}
+\RightLabel{$\rightarrow L$}
+\BinaryInfC{$\neg A \rightarrow A \vdash A$}
+\RightLabel{$\neg L$}
+\UnaryInfC{$\neg A \rightarrow A, \neg A \vdash $}
+
+
+\RightLabel{$Cut, \wedge L$}
+\BinaryInfC{$A \leftrightarrow \neg A \vdash$}
+\end{prooftree}
+
+从而有$R(z, z)\leftrightarrow \neg R(z, z)\vdash$可证. 再注意到
+$$R(z, z) = R(x, z)[\frac{z}{x}], \quad \neg R(z, z) = \neg R(x, x) [\frac{z}{x}]$$
+继而有
+$$R(z, z)\leftrightarrow \neg R(z, z) = (R(x, z)\leftrightarrow \neg R(x, x))[\frac{z}{x}]. $$
+那么我们有证明树
+\begin{prooftree}
+\AxiomC{$R(z, z)\leftrightarrow \neg R(z, z)\vdash$}
+\RightLabel{$WL$}
+\UnaryInfC{$\forall x(R(x, z)\leftrightarrow \neg R(x, x)), R(z, z)\leftrightarrow \neg R(z, z)\vdash$}
+\RightLabel{$\forall L$}
+\UnaryInfC{$\forall x(R(x, z)\leftrightarrow \neg R(x, x))\vdash$}\RightLabel{$\exists L$}
+\UnaryInfC{$\exists y\forall x(R(x, y)\leftrightarrow \neg R(x, x))\vdash$}
+\RightLabel{$\neg R$}
+\UnaryInfC{$\vdash \neg \exists y\forall x(R(x, y)\leftrightarrow \neg R(x, x))$}
+
+\end{prooftree}
+\end{proof}
+\end{enumerate}
+
 
 \end{CJK*}
 
-\vspace{0.5cm} % A white space
-
-\noindent
-
-\vspace{0.5cm}
-
-\noindent
-\begin{CJK*}{UTF8}{bsmi}
-\end{CJK*}
 
 \end{document}
