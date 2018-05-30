@@ -1,4 +1,4 @@
 # Mathematical_Logic_NJUCS
 南京大学计算机系数理逻辑课程资料
 
-Since cheaters cheat anyway, why not make it fair? 
+仅限于学习交流，禁止用于商业用途。由于作者水平有限，错误在所难免，恳请指正。
