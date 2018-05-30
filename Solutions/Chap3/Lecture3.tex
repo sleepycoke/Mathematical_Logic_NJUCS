@@ -1,0 +1,72 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\author{DING Chao}
+
+\title{Selected Answers to Exercise 3\footnote{This document is maintained on \url{https://github.com/sleepycoke/Mathematical_Logic_NJUCS}}}
+\begin{document}
+\maketitle
+\section{P47-13(3)}
+\begin{align*}
+	 &((x_1*x_2)^{-1})_{M[\sigma]}\\
+	=&I(^{-1})((x_1*x_2)_{M[\sigma]})\\
+	=&(n - (x_1*x_2)_{M[\sigma]})) \mbox{ mod } n\\
+	=&(n - I(*)(x_{1_{M[\sigma]}}, x_{2_{M[\sigma]}})\text{ mod } n\\
+	=&(n - (x_{1_{M[\sigma]}} +_n x_{2_{M[\sigma]}})) \mbox{ mod } n\\
+	=&(n - (\sigma(x_1) +_n \sigma(x_2))  \mbox{ mod }  n\\
+	=&(n - (1  \text{ mod }  n) +_n (2  \text{ mod }   n) )  \mbox{ mod }  n\\
+	=&-3  \mbox{ mod }  n
+\end{align*}
+
+\bigbreak
+
+\begin{align*}
+&((x_1)^{-1}*(x_2)^{-1})_{M[\sigma]}\\
+=&I(*)[(x_1^{-1})_{M[\sigma]}, (x_2^{-1})_{M[\sigma]}]\\
+=&I(*)[I(^{-1})(\sigma(x_1)), I(^{-1})(\sigma(x_2))]\\
+=&((n - 1) \mbox{ mod } n) +_n ((n - 2) \mbox{ mod } n)\\
+=&-3 \mbox{ mod } n
+\end{align*}
+
+Since $((x_1*x_2)^{-1})_{M[\sigma]} = ((x_1)^{-1}*(x_2)^{-1})_{M[\sigma]}$, by Definition 3.12(2), p36, $A_{M[\sigma]} = T$. 
+
+\section{P47-14(2)}
+Lemma 1: $\models A \Rightarrow \models \forall x. A$. ($\Leftrightarrow$ indeed).
+
+\begin{proof}
+	By $\models A$, we have for any $(M, \sigma)$, $A_{M[\sigma]} = T$. Therefore for any $a \in M, A_{M[\sigma[x:=a]]} = T$(note that $\sigma[x:=a]$ is one specific assignment of all the $\sigma\,$s), 	which implies $\forall x.A _{M[\sigma]} = T$, aka $M \models _\sigma \forall x.A$ . As a result, since $(M, \sigma)$ is arbitrary, $\models \forall x. A$. 
+\end{proof}
+
+Let $A := (x \doteq y \rightarrow y \doteq x)$, 
+\begin{align*}
+	 &A_{M[\sigma]}\\
+	=&B_\rightarrow[(x \doteq y)_{M[\sigma]}, (y \doteq x) _{M[\sigma]}]\\
+	=&\begin{cases}
+		F \quad \mbox{ if } (x \doteq y)_{M[\sigma]} = T \mbox{ and } (y \doteq x)_{M[\sigma]} = F\\
+		T \quad \mbox{otherwise}%\quad \mbox{ if } (x \doteq y)_{M[\sigma]} = F \mbox{ or } (x \doteq y)_{M[\sigma]} = (y \doteq x) _{M[\sigma]} = T\\
+	 \end{cases}\\
+\end{align*}
+
+However, $(x\doteq y)_{M[\sigma]} = T$ implies $\sigma(x) = \sigma(y)$, which implies $\sigma(y) = \sigma(x)$ and $(y \doteq x)_{M[\sigma]} = T$. Thus $A _{M[\sigma]} = T$. Applying Lemma 1 twice we get $$\models \forall x \forall y. A.$$ 
+
+\section{P49-24}
+\subsection*{$\Rightarrow$}
+\begin{align*}
+	& M\models _\sigma \forall x. A\\
+	\Rightarrow & \text{For all }\sigma(z) \in M, A_{M[\sigma[x:=\sigma(z)]]} = T. \\
+	\Rightarrow&\text{For all }a\in M, \forall z . A[\frac{z}{x}]_{M[\sigma[z:=a]]} = T, \text{ by Lemma 3.24, p40. } \\
+	\Rightarrow &M\models _\sigma\forall z. A[\frac{z}{x}]
+\end{align*}
+\subsection*{$\Leftarrow$}
+\begin{align*}
+	 &M\models _\sigma\forall z. A[\frac{z}{x}]\\
+	\Rightarrow & \text{For all }a \in M, A[\frac{z}{x}]_{M[\rho]} = T, \text{ where $\rho := \sigma[z:=a]$. } \\
+	\Rightarrow & \text{For all }a \in M, A_{M[\rho[x := z_{M[\rho]}]]} = T, \text{ by Lemma 3.24, p40. } \\
+	\Rightarrow & \text{For all }a \in M, A_{M[\rho[x:=a]]} = T. \\
+	\Rightarrow & \text{For all }a \in M, A_{M[\sigma[x:=a]]} = T, \text{ since $z$ is fresh in $A$. } \\
+	\Rightarrow & M\models _\sigma \forall x. A
+\end{align*}
+
+
+\end{document}
