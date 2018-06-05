@@ -1,0 +1,156 @@
+\documentclass{article}
+\usepackage{CJKutf8}%导入CJKutf8包,并且激活中文、日文、韩文的uft8编码
+\usepackage{mathrsfs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\begin{document}
+
+\begin{CJK*}{UTF8}{gbsn}
+
+\section{}
+
+设:$\Delta \subseteq \Gamma, \Delta$ 为有穷集，
+
+从而有$k \in \mathcal{N} $使得
+
+$\Delta \subseteq \{ (x > S^nO) | n=0,1,2,..,k$
+
+设$N = \{ \mathbb{N},O,Suc , >  \}$ 为算术的标准模型
+
+期中$ Suc (x) =x+1 . >$为大于关系
+
+令$\sigma$ 为$\mathbb{N}$上赋值使$\sigma (x) = k+1$
+
+从而$N \vDash_\sigma (x>S^n(o))(n=0,1,2,..,k)$
+
+故$N \vDash_\sigma \Delta$即$\Delta$可满足
+
+由紧致性定理知$\Gamma$可满足.
+
+\section{}
+
+
+设$\Gamma \vDash \phi$
+
+反设不存在$\Gamma$的有穷子集$\Delta$使$\Delta \vDash \phi$
+
+从而 对任何$\Gamma$的有穷子集$\Delta$有$\Delta \nvDash \phi$
+
+因此对任何$\Gamma$的有穷子集$\Delta$有$\Delta \cup \{\neg \phi\}$可满足
+
+故$\Gamma \cup \{\neg \phi\}$的任何有穷子集可满足,
+
+由紧致性定理知$\Gamma \cup \{\neg \phi\}$可满足，设
+
+$m \vDash \cup\{\neg \phi\}$从而$\Gamma \vDash \phi$知道$m \vDash \phi$
+
+矛盾！
+
+\section{}
+
+令$\phi \equiv \exists x_1,...,x_n. \mathbb{M}_{1\leq i\leq j\n \neg (x_i \doteq x_j)}$
+
+易见$\mathscr{m} \phi_n \Longleftrightarrow |M|\geq n$
+
+$\mathscr{m}\{ \phi_n | i\in \mathbb{N}^+ \} \LeftRightarrow |M|\geq \aleph_0$
+
+令$\Gamma =\Sigma \cup \{ \phi_i | i \in \mathbb{N}^+ \}$，对于任何$\Gamma$的
+
+有穷子集$\Delta \subseteq \Sigma \cup \{ \phi_i | i  \in \mathbb{N}^+ \} $，存在$k$使
+
+$\Delta \subseteq \Sigma \cup \{ \phi_1 ,..., \phi_k\} $,由于$\Sigma$具有论域
+
+基数大于k的模型，故$\Delta$可满足,
+
+由紧致性定理知$\Gamma$ 可满足，say，$\mathscr{m} \vDash \Gamma$
+
+从而$\mathscr{m} \vDash \{ \phi_i | i  \in \mathbb{N}^+\}$,故$|M|\geq \aleph_0$.
+
+
+\section{}
+
+只需证每个有穷图可4色则无穷图可四色.
+
+设MAP为一张无穷地图，令全体国家的集合为
+
+${a_i |i\in I}$,这里$|I|\geq \aleph_0$.
+
+设一阶语言$\mathcal{L}$由一下构成
+
+(1)常元:$\{a_i | i\in I\}$
+
+(2)一元谓词：$C_k (x) (k=1,2,3,4)$\{$C_k (x)$表示x着$k$色\}
+
+(3)二元谓词：$g(x,y)$\{$g(x,y)$表示$x$与$y$有大于0的公关边界\}.
+
+令$Q = \{<i,j>|i,j\in I\}$且在MAP中$a_i$与$a_j$有大于0的公关边界.
+
+令$\Gamma = \{q(a_i,a_j) | <i,j> \in Q\}$
+
+$\cup = \{\neg q(a_i,a_j) | <i,j> \notin Q\}$
+
+$\cup\{ \forall x(c_1(x)\vee \c_2(x)\vee \c_3(x)\vee \c_4(x))\}$
+
+$\cup\{ \forall x \forall y \rightarrow (\neg ( x(c_1(x)\vee \c_1(y))  \vee \neg(c_2(x)\vee c_2(y))\vee \neg(c_3(x)\vee c_3(y))\vee \neg(c_4(x)\vee c_4(y))))\}$
+
+设$S\subseteq \Gamma$ 为$\Gamma$的任何有穷子集，不妨设$a_0,...,a_n$
+
+为出现在$S$中的全体常元，令$M=\{a_0,...,a_n)\},MAP[s]$可着4色
+
+令$C_{km}=\{a_i|a_i$着$k$色$i\leq n\}k=1,...,4$
+
+$q_m =\{<a_i,a_j>|<i,j>\in Q\}$从而$m \vDash S$
+
+由compactness知有m使$m\vDash \Gamma $即MAP可4色.
+
+\section{}
+反设，对任何$m\in N$ 都存在结构$m=(M,I)$使
+
+$m <|M| < \aleph_0$ 且$m\vDash \neg  \varpi $
+
+令 $\varphi_n$ 为 $\exists x_1 \exists x_2 ... \exists x_n (\vee_{0<i<j\leq n}\neg (x_i \doteq x_j))$
+
+易见(1)$ m\vDash \varphi_n \Rightarrow |M|\geq n$. (2)当$m<n$时,$m\vDash \varphi_n \Rightarrow m\vDash \varphi_m$ 
+(3)$m\vDash {\varphi_1,\varphi_2...} \Rightarrow |M|\geq \aleph_0$
+
+令$\Gamma =\{ \neg  \varphi, \varphi, ..., \varphi_n ,...\} = \{ \neg \phi \}\cup \{\varphi_n |n \in N^+\}$
+
+对于有穷集$S \subseteq \Gamma$, 有$k$使$S\subseteq \{ \neg  \varphi, \varphi, ..., \varphi_n ,...\} $
+
+从而由反设知$S$有模型,因此由紧致定理知,$\Gamma$ 有模型,设为$m' = (M',I')$,从而
+
+$m'\vDash \{\varphi_1, ..., \varphi_n...\}$,因此$|M|\geq \aleph_0$且
+
+$m' \vDash \neg \varphi$ 与题设矛盾.
+
+
+\section{}
+
+反设存在这样的$\Sigma$.令$\{C_n|n \in N\}$为新常元
+
+集，令$\mathbb{L'}\doteq \mathbb{L} \cup \{C_n | n \in N\}$,
+
+$\Sigma' \doteq \Sigma \cup \{R (C_{n+1}),C_n),\neg (C_{n+1}\doteq C_n)| n\in N\}$
+
+
+因为$\Sigma$有一个无穷模型，所以$\Sigma'$的任何有穷子集有
+
+model ，从而$\Sigma'$有model，say，$m$,因此
+
+$m \vDash \Sigma,$令 $R_M$为<, $(C_n)_M$为$a_n$从而
+
+$a_0>a_1>a_2...$为无穷下降链，从而
+
+${a_n | n \in N}$ has no the least element.
+
+故$R_m$并非$M$上的良序.矛盾
+
+
+
+
+\end{CJK*}
+
+\begin{CJK*}{UTF8}{bsmi}
+\end{CJK*}
+
+\end{document}
