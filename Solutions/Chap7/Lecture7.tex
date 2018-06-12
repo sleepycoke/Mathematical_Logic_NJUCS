@@ -1,147 +1,233 @@
 \documentclass{article}
-\usepackage{CJKutf8}%导入CJKutf8包,并且激活中文、日文、韩文的uft8编码
-\usepackage{mathrsfs}
-\usepackage{amssymb}
+\usepackage{ctex}
+\usepackage{fontspec, xunicode, xltxtra}
 \usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{enumerate}
+\usepackage{amsthm}
+\usepackage{bussproofs}
+\usepackage{hyperref}
+%\usepackage{mathabx}
+\usepackage[a4paper,top=30mm,bottom=30mm,left=30mm,right=30mm]{geometry}
+
+\newcommand{\vv}[0]{\vdash\dashv}
+\renewcommand{\today}{\number\year 年 \number\month 月 \number\day 日}
+
+\setlength\parindent{0pt}
+\vspace{-8ex}
+%\date{}
 \begin{document}
 
-\begin{CJK*}{UTF8}{gbsn}
+\title{数理逻辑第七讲习题参考答案\footnote{Ver. 1.0. 原答案由宋方敏教授给出手稿, 乔羽同学录入, 最后由丁超同学修订补充. 此文档来源为{\url{https://github.com/sleepycoke/Mathematical_Logic_NJUCS}},
+ 欢迎各位同学提出意见共同维护. 
+}}
+\maketitle
+\section{}
+此题答案由陈邵源给出. 	
+\begin{align*}
+  &(\forall x \exists y \forall z \exists u P(x, y, z, u))^s \\
+  =& \forall x (\exists y \forall z \exists u P(x, y, z, u))^s \\
+  =& \forall x (\forall z \exists u P(x, f(x), z, u))^s\quad \text{这里$f$为一元新函数}\\
+  =& \forall x \forall z (\exists u P(x, f(x), z, u))^s \\
+  =& \forall x \forall z (P(x, f(x), z, g(x, z)))^s \quad \text{这里$g$为二元新函数}\\
+  =& \forall x \forall z P(x, f(x), z, g(x, z))
+\end{align*}
 
 \section{}
-
-(1)$\forall x \exists y \forall z \exists u. P(x,y,z,u)$
-
-(2)$\forall x \exists z \exists u. P(x,f(x),z,u)$,这里$f$为一元新函数.
-
-(3)$\forall x \forall z P(x,f(x),z,g(x,z))$,这里$g$为二元新函数。
-
-这是原式子的Skolem范式.
-
-
-\section{}
-
-(1)$(\forall x P(x) \land \forall y Q(y)) \rightarrow \exists z P(z)$
-
-(2)$\neg (\forall x P(x) \land \forall y Q(y) \lor \exists z P(z)$
-
-(3)$\neg \forall x P(x) \land \neg \forall y Q(y) \lor \exists z P(z)$
-
-(4)$ \exists x \neg P(x) \land \exists y \neg Q(y) \lor \exists z P(z)$
-
-(5)$ \exists x \exists y \exists z (\neg P(x) \lor \neg Q(y)) \land  P(z))$
-
-(6)$ \exists x \exists y \exists z (\neg P(x) \land \neg Q(y)) \rightarrow  P(z))$
-
-(6)中的原式的前束型范式.
-
-
-
-\section{}
-
-由定义即得.
+此题答案由杨嘉文板书补充得.
+\begin{proof}
+引入记号``$\vv$'':
+$$A \vv B \Leftrightarrow A\vdash B \text{且} B \vdash A. $$
+那么显然有
+$$\vdash A \leftrightarrow B \Leftrightarrow A\vv B $$
+且它是一个等价关系. 
+\begin{align*}
+  &(\forall x P(x) \wedge \forall y Q(y)) \rightarrow \exists z P(z) \\
+  \vv & (\forall x \forall y (P(x) \wedge Q(y))) \rightarrow \exists z P(z) \quad &\text{命题7.4(3)}\\
+  \vv & \exists x \exists y (P(x) \wedge Q(y) \rightarrow \exists z P(z)) \quad &\text{命题7.4(5), 命题7.3(1)}\\
+  \vv & \exists x \exists y \exists z (P(x) \wedge Q(y) \rightarrow P(z))\quad &\text{命题7.4(8), 命题7.3(1)}\\
+\end{align*}
+于是
+$$\vdash [(\forall x P(x) \wedge \forall y Q(y)) \rightarrow \exists z P(z)]\leftrightarrow [\exists x \exists y \exists z (P(x) \wedge Q(y) \rightarrow P(z))].$$
+\end{proof}
 
 
 \section{}
+此答案由孙旭东的板书精简得.
+\begin{proof}
+设A中量词的个数为$n$,下面对$n$作归纳证明.
+\begin{itemize}
+	\item[Basis:] $n = 0$. 此时$A^s = A$, 从而$FV(A^s) = FV(A) = \emptyset$. 
+	\item[I.H.:] $n \le k$时$FV(A^s) = \emptyset$. 
 
-证：设$m$为任何model
+	\item[I.S.:] 设$n = k + 1$， $A$呈形$Q x B$, 从而$B$的量词个数为$k$, 且$FV(B)\subseteq FV(A)$. 又$FV(A) = \emptyset$, 则$FV(B) = \emptyset$. 由归纳假设有$FV(B^s) = FV(B) = \emptyset$. 
+	
+		若$Q$为$\forall$, 那么$A^s = \forall x B^s$.  而又由于$FV(A^s) = FV(B^s) \backslash \{x\}$, $FV(A^s) = \emptyset$. 
+		
+		若$Q$为$\exists$, 那么由$FV(A)= \emptyset$有$A^s = (B[\frac{c}{x}])^s$, $c$为新常元. 
+		注意到$B[\frac{c}{x}]$的量词个数不超过$k$且$FV(B[\frac{c}{x}]) = FV(B) \backslash \{x\} = \emptyset $, 那么由归纳假设$FV((B[\frac{c}{x}]^s) = \emptyset$. 
+		最后$FV(A^s) = FV((B[\frac{c}{x}])^s) = FV(B^s) =\emptyset$.  
+\end{itemize}
+综上, $FV(A^s) = \emptyset$. 
+\end{proof}
 
-设 $m \vDash \exists x \forall y P(x,y)$,以下证明
+\section{}
+先给出一个语义证明:
 
-$m \vDash \forall y \exists x  P(x,y)$
+\begin{proof}
+	
+设$\mathfrak{M}$为任意结构.
 
-$m \vDash \exists x \forall y P(x,y) \Rightarrow$
+设 $\mathfrak{M} \vDash \exists x \forall y P(x,y)$,以下证明$\mathfrak{M} \vDash \forall y \exists x  P(x,y)$. 
 
-存在$a \in M$ 对任何$b\in M$, 有$<a,b>\in P_M \Rightarrow$
+$\mathfrak{M} \vDash \exists x \forall y P(x,y)$
 
-对任何$b\in M$, 有$a\in M <a,b>\in P_M\Rightarrow m\vDash \forall y \exists x  P(x,y)$
+$\Rightarrow$存在$a \in M$ 对任何$b\in M$, 有$(a,b)\in P_M$
+
+$ \Rightarrow$对任何$b\in M$, 有$a\in M$使得$(a,b)\in P_{M}$
+
+$\Rightarrow \mathfrak{M}\vDash \forall y \exists x  P(x,y)$
+\end{proof}
+
+再给出陈邵源在$G$中的语法证明:
+\begin{proof}
+~
+  \begin{prooftree}
+      \AxiomC{Axiom}
+      \noLine
+      \UnaryInfC{$P(u, v) \vdash P(u, v)$} \RightLabel{$\forall L, \exists R$}
+      \doubleLine
+      \UnaryInfC{$\forall y P(u, y) \vdash \exists x P(x, v)$} \RightLabel{$\forall R, \exists L$}
+      \doubleLine
+      \UnaryInfC{$\exists x \forall y P(x, y) \vdash \forall y \exists x P(x, y)$} \RightLabel{$\rightarrow R$}
+      \UnaryInfC{$\vdash \exists x \forall y P(x, y) \rightarrow \forall y \exists x P(x, y)$}
+  \end{prooftree}
+\end{proof}
+
+\section{}
+直接引用陈邵源的答案: 
+\begin{proof}
+构造模型$\mathfrak{M} = (M, \sigma)$，其中$M = \{1, 2\}$，$P_M = \{(1,1), (2,2)\}$，则易验证$\mathfrak{M} \nvDash_\sigma \forall x \exists y P(x, y) \rightarrow \exists y \forall x P(x, y)$，从而$\nvDash\forall x \exists y P(x, y) \rightarrow \exists y \forall x P(x, y)$. 
+\end{proof}
 
 
 \section{}
-证：欲证, $\nvDash \forall x \exists x  P(x,y) \rightarrow \forall y \exists x  P(x,y)$
+先给出一个语义证明:
+\begin{proof}
+设$\mathfrak{M}$为任意结构
 
-只需构作$m$使 $m \vDash \forall x \exists y  P(x,y)$ ...(*)
+$\mathfrak{M} \vDash \forall x P(x,f(x)) $
 
-但$m \nvDash \exists y \forall x P(x,y)$ ...(**)
+$\Rightarrow$对任何$a\in M, (a, f_M(a))\in P_M$
 
-令$m = (N, <) ,$这里$P_M =\{(a,b)| a<b\}$
+$\Rightarrow$对任何$a\in M $有$b \in M$使$(a, b)\in P_M$
 
-易见(*),(**)成立。
+$\Rightarrow \mathfrak{M} \vDash \forall x \exists y  P(x, y)$
 
+所以$\mathfrak{M} \vDash \forall x P(x, f(x)) \Rightarrow \mathfrak{M} \vDash \forall x \exists y  P(x, y)$
 
-\section{}
-证：设$m$为任何model
+即$\vDash \forall x P(x, f(x)) \rightarrow \forall x \exists y  P(x, y)$
+\end{proof}
 
-因为$m \vDash \forall x P(x,f(f)) \Rightarrow$
-
-对任何$a\in M . <a,f_M(a)>\in P \Rightarrow$
-
-对任何$a\in M $有$b \in M$使$<a,b>\in P$
-
-$\Rightarrow m \vDash \forall x \exists y  P(x,y)$
-
-所以$m \vDash \forall x P(x,f(x)) \rightarrow \forall x \exists y  P(x,y)$
-
-\section{}
-
-证：$ \forall x \exists y  P(x,y) $可满足$<a,b>\in P_M \Rightarrow$
-
-\{ 由AC知,存在$\tau : \mathcal{P} (M) -\{\phi\} \rightarrow M$使对$Z \subseteq M$,且$Z \neq \phi, \tau(Z) \in Z.$\}
-
-
-对任何$a\in M$, $M_a = \{b|<a,b>\in P_M\} \neq \phi \Rightarrow$
-
-对任何$a\in M$, $\tau(M_a) \in M_a \Rightarrow$
-
-对任何$a\in M$, $<a,\tau(M_a)> \in P_M \Rightarrow$
-
-\{令$f_M=\{<a,\tau(M_a)>|a \in M\}$\}
-
-$m^{'} \vDash \forall x P(x,f(x)) ,$这里$m^{'} = m +f_M$
-
+再引用陈邵源在$G$中的语法证明:
+\begin{proof}
+	~
+  \begin{prooftree}
+      \AxiomC{Axiom}
+      \noLine
+      \UnaryInfC{$P(z, f(z)) \vdash P(z, f(z))$} \RightLabel{$\exists R$}
+      \UnaryInfC{$P(z, f(z)) \vdash \exists y P(z, y)$} \RightLabel{$\forall L$}
+      \UnaryInfC{$\forall x P(x, f(x)) \vdash \exists y P(z, y)$} \RightLabel{$\forall R$}
+      \UnaryInfC{$\forall x P(x, f(x)) \vdash \forall x  \exists y P(x, y)$} \RightLabel{$\rightarrow R$}
+      \UnaryInfC{$\vdash \forall x P(x, f(x)) \rightarrow \forall x \exists y P(x, y)$}
+  \end{prooftree}
+\end{proof}
 
 \section{}
+此题实际上是定理7.7的一个直接结果. 
 
-解：8.1 $A$ 为$P(f(c))$
+首先给出宋方敏教授的证明:
+\begin{proof}
+$ \forall x \exists y  P(x, y) $可满足
 
-$H_0=\{c\}$
+$\Rightarrow$存在结构$\mathfrak{M} \models \forall x \exists y P(x, y)$. 设其论域为$M$. 
 
-$H_1= H_0 \cup \{f(t)|t\in H_0\}= \{c\}\cup \{f(c)\} =\{c,f(c)\}$
+$\Rightarrow$对任何$a \in M$有$b \in M$使得$(a, b) \in P_M$. 
 
-$H_2=\{c,f(c),f^2(c)\}$
+$\Rightarrow$对任何$a\in M$, $M_a := \{b|(a, b)\in P_M\} \neq \emptyset$.
+
+由选择公理知,存在$\tau : \mathcal{P} (M) \backslash \{\emptyset\} \rightarrow M$. 
+
+
+
+$\Rightarrow$对任何$a\in M$, $\tau(M_a) \in M_a$ 
+
+$\Rightarrow$对任何$a\in M$, $(a,\tau(M_a)) \in P_M$, 
+
+$\Rightarrow$令$f_{M'}=\{(a,\tau(M_a))|a \in M\}$, $\mathfrak{M'} = \mathfrak{M} +f_{M'}$.
+
+那么有$\mathfrak{M'} \vDash \forall x P(x, f(x))$,
+即$\forall x P(x, f(x))$可满足. 
+
+\end{proof}
+
+下面给出陈邵源的一个更具体的证明: 
+\begin{proof}
+	构造模型$\mathfrak{M} = (M, \sigma)$, 其中$M = \{0\}$，$P_M = \{(0, 0)\}$，$f_{M'}(0) = 0$, $\mathfrak{M'} = \mathfrak{M} + f_{M'}$. 则易验证$\mathfrak{M} \models \forall x \exists y P(x, y)$和$\mathfrak{M'} \models \forall x P(x, f(x))$. 从而$\forall x \exists y P(x, y)$可满足$\Rightarrow$ $\forall x P(x, f(x))$可满足. 
+\end{proof}
+
+读到这里想必你已经发现，由于此题的两个公式给得太具体了，我们只要证出以下命题之一就足够
+
+\begin{itemize}
+	\item $\forall x \exists y P(x, y)$矛盾; 
+	\item $\forall x P(x, f(x))$可满足. 
+\end{itemize}
+
+而事实上后者很容易就可以构造出模型. 
+
+\section{}
+
+设$A$为$P(f(c))$,
+
+$H_0=\{c\}$,
+
+$H_1= H_0 \cup \{f(t)|t\in H_0\}= \{c\}\cup \{f(c)\} =\{c, f(c)\}$,
+
+$H_2=\{c,f(c),f^2(c)\}$,
 
 ...
 
-$H_n=\{c,f(c),...,f^n(c)\}$
+$H_n=\{c,f(c),...,f^n(c)\}$,
 
-$H=\{f^n(c)|n \in N\}$
+$H=\{f^n(c)|n \in N\}$.
 
 
 \section{}
-证：对$n$归纳证明$H_n$有穷
+丁超认为此题结论要修正为$|H_n| < \aleph_0$而且$|H_A| \le \aleph_0$. 
+\begin{proof}
+若$A$中无函数符，那么对任何$n$, $H_A = H_n = H_0$, 结论成立. 
+	
+若$A$中有函数符, 对$n$归纳证明$H_n$有穷. 
+\begin{itemize}
+\item[Basis:]$n=0, H_0=\{c_0\}$或$\{c|c$为$\alpha$中常元$\}$, 易见$H_n$有穷. 
 
-Basis.$n=0, H_0=\{c_0\}$或$\{c|c$为$\alpha$中常元$\}$
+\item[I.H.:] $H_k$有穷
 
-易见$H_n$有穷
+\item[I.S.:] $H_{k+1} = H_k \cup \{ f(t_1,...,t_m)|t_i \in H_k$, $f$为$A$中$m$元函数符.\}
 
-I.H. $H_n$有穷
+注意到对于特定的函数符$f_0$，$|\{f_0(t_1,...,t_m)|t_i \in H_k\}| = |H_k^m|$. 
+由归纳假设$H_k$有穷，从而上式$< \aleph_0$. 又由于$A$的函数符集是有穷的，$\{ f(t_1,...,t_m)|t_i \in H_k$, $f$为$A$中$m$元函数符.\}有穷. 
 
-I. step $H_{n+1} = H_n \cup \{ f(t_1,...,t_k)|t_i \in H_n$
-
-且$f$ 为$\alpha $中$k$元素\}
-
-$|H_{n+1}| \leq |H_n| +|\{f|f$为$\alpha$中函数\}$\times H_n$
-
-$< \aleph_0 +\aleph_0 \cdot \aleph_0 =\aleph_0$
-
-又因为$\aleph_0\leq |H| \leq \aleph_0 \cdot \aleph_0 =\aleph_0$
-
-所以 $\aleph_0 = |H|$
+从而$H_{k+1}$有穷. 
 
 
+\end{itemize}
+于是$H_n$有穷. 
 
-\end{CJK*}
+最后$H_A$是可数个有穷集的并，一定可数. 而由第8题知$H_A$又是无穷的, 那么就一定有$|H_A| = \aleph_0$. 
 
-\begin{CJK*}{UTF8}{bsmi}
-\end{CJK*}
+\end{proof}
+
 
 \end{document}
