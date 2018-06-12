@@ -24,7 +24,7 @@
 }}
 \maketitle
 \section{}
-此题答案由陈邵源给出. 	
+此题答案由陈劭源给出. 	
 \begin{align*}
   &(\forall x \exists y \forall z \exists u P(x, y, z, u))^s \\
   =& \forall x (\exists y \forall z \exists u P(x, y, z, u))^s \\
@@ -90,7 +90,7 @@ $ \Rightarrow$对任何$b\in M$, 有$a\in M$使得$(a,b)\in P_{M}$
 $\Rightarrow \mathfrak{M}\vDash \forall y \exists x  P(x,y)$
 \end{proof}
 
-再给出陈邵源在$G$中的语法证明:
+再给出陈劭源在$G$中的语法证明:
 \begin{proof}
 ~
   \begin{prooftree}
@@ -106,7 +106,7 @@ $\Rightarrow \mathfrak{M}\vDash \forall y \exists x  P(x,y)$
 \end{proof}
 
 \section{}
-直接引用陈邵源的答案: 
+直接引用陈劭源的答案: 
 \begin{proof}
 构造模型$\mathfrak{M} = (M, \sigma)$，其中$M = \{1, 2\}$，$P_M = \{(1,1), (2,2)\}$，则易验证$\mathfrak{M} \nvDash_\sigma \forall x \exists y P(x, y) \rightarrow \exists y \forall x P(x, y)$，从而$\nvDash\forall x \exists y P(x, y) \rightarrow \exists y \forall x P(x, y)$. 
 \end{proof}
@@ -130,7 +130,7 @@ $\Rightarrow \mathfrak{M} \vDash \forall x \exists y  P(x, y)$
 即$\vDash \forall x P(x, f(x)) \rightarrow \forall x \exists y  P(x, y)$
 \end{proof}
 
-再引用陈邵源在$G$中的语法证明:
+再引用陈劭源在$G$中的语法证明:
 \begin{proof}
 	~
   \begin{prooftree}
@@ -172,7 +172,7 @@ $\Rightarrow$令$f_{M'}=\{(a,\tau(M_a))|a \in M\}$, $\mathfrak{M'} = \mathfrak{M
 
 \end{proof}
 
-下面给出陈邵源的一个更具体的证明: 
+下面给出陈劭源的一个更具体的证明: 
 \begin{proof}
 	构造模型$\mathfrak{M} = (M, \sigma)$, 其中$M = \{0\}$，$P_M = \{(0, 0)\}$，$f_{M'}(0) = 0$, $\mathfrak{M'} = \mathfrak{M} + f_{M'}$. 则易验证$\mathfrak{M} \models \forall x \exists y P(x, y)$和$\mathfrak{M'} \models \forall x P(x, f(x))$. 从而$\forall x \exists y P(x, y)$可满足$\Rightarrow$ $\forall x P(x, f(x))$可满足. 
 \end{proof}
