@@ -19,7 +19,7 @@
 %\date{}
 \begin{document}
 
-\title{数理逻辑第七讲习题参考答案\footnote{Ver. 1.1. 原答案由宋方敏教授给出手稿, 乔羽同学录入, 最后由丁超同学修订补充. 此文档来源为{\url{https://github.com/sleepycoke/Mathematical_Logic_NJUCS}},
+\title{数理逻辑第七讲习题参考答案\footnote{Ver. 1.2. 原答案由宋方敏教授给出手稿, 乔羽同学录入, 最后由丁超同学修订补充. 此文档来源为{\url{https://github.com/sleepycoke/Mathematical_Logic_NJUCS}},
  欢迎各位同学提出意见共同维护. 
 }}
 \maketitle
@@ -41,11 +41,11 @@
 引入记号``$\vv$'':
 $$A \vv B \Leftrightarrow A\vdash B \text{且} B \vdash A. $$
 那么显然有
-$$\vdash A \leftrightarrow B \Leftrightarrow A\vv B $$
+\[\vdash A \leftrightarrow B \Leftrightarrow A\vv B \Rightarrow A \rightarrow C \vv B \rightarrow C \label{lemma} \tag{*}\]
 且它是一个等价关系. 
 \begin{align*}
   &(\forall x P(x) \wedge \forall y Q(y)) \rightarrow \exists z P(z) \\
-  \vv & (\forall x \forall y (P(x) \wedge Q(y))) \rightarrow \exists z P(z) \quad &\text{命题7.4(3)}\\
+  \vv & (\forall x \forall y (P(x) \wedge Q(y))) \rightarrow \exists z P(z) \quad &\text{命题7.4(3), (\ref{lemma}})\\
   \vv & \exists x \exists y (P(x) \wedge Q(y) \rightarrow \exists z P(z)) \quad &\text{命题7.4(5), 命题7.3(1)}\\
   \vv & \exists x \exists y \exists z (P(x) \wedge Q(y) \rightarrow P(z))\quad &\text{命题7.4(8), 命题7.3(1)}\\
 \end{align*}
