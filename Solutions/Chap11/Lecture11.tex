@@ -1,27 +1,43 @@
 \documentclass{article}
-\usepackage{CJKutf8}%导入CJKutf8包,并且激活中文、日文、韩文的uft8编码
-\usepackage{mathrsfs}
-\usepackage{amsmath}
+\usepackage{ctex}
+\usepackage{fontspec, xunicode, xltxtra}
 \usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{enumerate}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\usepackage[a4paper,top=30mm,bottom=30mm,left=30mm,right=30mm]{geometry}
+
+\newcommand{\vv}[0]{\vdash\dashv}
+\renewcommand{\today}{\number\year 年 \number\month 月 \number\day 日}
+
+\setlength\parindent{0pt}
+\vspace{-8ex}
+%\date{}
 \begin{document}
 
-\begin{CJK*}{UTF8}{gbsn}
+\title{数理逻辑第十一讲习题参考答案\footnote{Ver. 0.1. 原答案由宋方敏教授给出手稿, 乔羽同学录入, 最后由丁超同学修订补充. 此文档来源为\url{https://github.com/sleepycoke/Mathematical_Logic_NJUCS}由于时间紧张，丁超只更正了比较明显的笔误, 没有仔细验证, 见谅. 
+ 欢迎各位同学提出意见共同维护. 
+}}
+\maketitle
 
 \section{}
 
 设:$\Delta \subseteq \Gamma, \Delta$ 为有穷集，
 
-从而有$k \in \mathcal{N} $使得
+从而有$k \in \mathbb{N} $使得
 
-$\Delta \subseteq \{ (x > S^nO) | n=0,1,2,..,k$
+$\Delta \subseteq \{ (x > S^n0) | n=0,1,2,..,k\}$
 
 设$N = \{ \mathbb{N},O,Suc , >  \}$ 为算术的标准模型
 
-期中$ Suc (x) =x+1 . >$为大于关系
+其中$ Suc (x) =x+1 $, $ $为大于关系
 
 令$\sigma$ 为$\mathbb{N}$上赋值使$\sigma (x) = k+1$
 
-从而$N \vDash_\sigma (x>S^n(o))(n=0,1,2,..,k)$
+从而$N \vDash_\sigma (x>S^n(0))(n=0,1,2,..,k)$
 
 故$N \vDash_\sigma \Delta$即$\Delta$可满足
 
@@ -30,41 +46,41 @@ $\Delta \subseteq \{ (x > S^nO) | n=0,1,2,..,k$
 \section{}
 
 
-设$\Gamma \vDash \phi$
+设$\Gamma \vDash \varphi$
 
-反设不存在$\Gamma$的有穷子集$\Delta$使$\Delta \vDash \phi$
+反设不存在$\Gamma$的有穷子集$\Delta$使$\Delta \vDash \varphi$
 
-从而 对任何$\Gamma$的有穷子集$\Delta$有$\Delta \nvDash \phi$
+从而 对任何$\Gamma$的有穷子集$\Delta$有$\Delta \nvDash \varphi$
 
-因此对任何$\Gamma$的有穷子集$\Delta$有$\Delta \cup \{\neg \phi\}$可满足
+因此对任何$\Gamma$的有穷子集$\Delta$有$\Delta \cup \{\neg \varphi\}$可满足
 
-故$\Gamma \cup \{\neg \phi\}$的任何有穷子集可满足,
+故$\Gamma \cup \{\neg \varphi\}$的任何有穷子集可满足,
 
-由紧致性定理知$\Gamma \cup \{\neg \phi\}$可满足，设
+由紧致性定理知$\Gamma \cup \{\neg \varphi\}$可满足，设
 
-$m \vDash \cup\{\neg \phi\}$从而$\Gamma \vDash \phi$知道$m \vDash \phi$
+$\mathfrak{M} \vDash \Gamma \cup\{\neg \varphi\}$从而$\Gamma \vDash \varphi$知$\mathfrak{M} \vDash \varphi$
 
 矛盾！
 
 \section{}
 
-令$\phi \equiv \exists x_1,...,x_n. \mathbb{M}_{1\leq i\leq j\n \neg (x_i \doteq x_j)}$
+令$\varphi \equiv \exists x_1,...,x_n. \mathbb{M}_{1\leq i\leq j\leq n} \neg (x_i \doteq x_j)$
 
-易见$\mathscr{m} \phi_n \Longleftrightarrow |M|\geq n$
+易见$\mathfrak{M} \models \varphi_n \Longleftrightarrow |M|\geq n$
 
-$\mathscr{m}\{ \phi_n | i\in \mathbb{N}^+ \} \LeftRightarrow |M|\geq \aleph_0$
+$\mathfrak{M} \models \{ \varphi_i | i\in \mathbb{N}^+ \} \Leftrightarrow |M|\geq \aleph_0$
 
-令$\Gamma =\Sigma \cup \{ \phi_i | i \in \mathbb{N}^+ \}$，对于任何$\Gamma$的
+令$\Gamma =\Sigma \cup \{ \varphi_i | i \in \mathbb{N}^+ \}$，对于任何$\Gamma$的
 
-有穷子集$\Delta \subseteq \Sigma \cup \{ \phi_i | i  \in \mathbb{N}^+ \} $，存在$k$使
+有穷子集$\Delta \subseteq \Sigma \cup \{ \varphi_i | i  \in \mathbb{N}^+ \} $，存在$k$使
 
-$\Delta \subseteq \Sigma \cup \{ \phi_1 ,..., \phi_k\} $,由于$\Sigma$具有论域
+$\Delta \subseteq \Sigma \cup \{ \varphi_1 ,..., \varphi_k\} $,由于$\Sigma$具有论域
 
 基数大于k的模型，故$\Delta$可满足,
 
-由紧致性定理知$\Gamma$ 可满足，say，$\mathscr{m} \vDash \Gamma$
+由紧致性定理知$\Gamma$ 可满足，那么有，$\mathfrak{M}\vDash \Gamma$
 
-从而$\mathscr{m} \vDash \{ \phi_i | i  \in \mathbb{N}^+\}$,故$|M|\geq \aleph_0$.
+从而$\mathfrak{M} \vDash \{ \varphi_i | i  \in \mathbb{N}^+\}$,故$|M|\geq \aleph_0$.
 
 
 \section{}
@@ -73,84 +89,77 @@ $\Delta \subseteq \Sigma \cup \{ \phi_1 ,..., \phi_k\} $,由于$\Sigma$具有论
 
 设MAP为一张无穷地图，令全体国家的集合为
 
-${a_i |i\in I}$,这里$|I|\geq \aleph_0$.
+$\{a_i |i\in I\}$,这里$|I|\geq \aleph_0$.
 
-设一阶语言$\mathcal{L}$由一下构成
+设一阶语言$\mathcal{L}$由以下构成
 
 (1)常元:$\{a_i | i\in I\}$
 
-(2)一元谓词：$C_k (x) (k=1,2,3,4)$\{$C_k (x)$表示x着$k$色\}
+(2)一元谓词：$C_k (x) (k=1,2,3,4)$\{$C_k (x)$表示$x$着$k$色\}
 
-(3)二元谓词：$g(x,y)$\{$g(x,y)$表示$x$与$y$有大于0的公关边界\}.
+(3)二元谓词：$g(x,y)$\{$g(x,y)$表示$x$与$y$有大于0的公共边界\}.
 
-令$Q = \{<i,j>|i,j\in I\}$且在MAP中$a_i$与$a_j$有大于0的公关边界.
+令$Q = \{<i,j>|i,j\in I\}$且在MAP中$a_i$与$a_j$有大于0的公共边界.
 
 令$\Gamma = \{q(a_i,a_j) | <i,j> \in Q\}$
 
-$\cup = \{\neg q(a_i,a_j) | <i,j> \notin Q\}$
+$\cup \{\neg q(a_i,a_j) | <i,j> \notin Q\}$
 
-$\cup\{ \forall x(c_1(x)\vee \c_2(x)\vee \c_3(x)\vee \c_4(x))\}$
+$\cup\{ \forall x(c_1(x)\vee c_2(x)\vee c_3(x)\vee c_4(x))\}$
 
-$\cup\{ \forall x \forall y \rightarrow (\neg ( x(c_1(x)\vee \c_1(y))  \vee \neg(c_2(x)\vee c_2(y))\vee \neg(c_3(x)\vee c_3(y))\vee \neg(c_4(x)\vee c_4(y))))\}$
+$\cup\{ \forall x \forall y (q(x, y)\rightarrow (\neg (c_1(x)\wedge c_1(y))  \wedge \neg(c_2(x)\wedge c_2(y))\wedge \neg(c_3(x)\wedge c_3(y))\wedge \neg(c_4(x)\wedge c_4(y))))\}$
 
-设$S\subseteq \Gamma$ 为$\Gamma$的任何有穷子集，不妨设$a_0,...,a_n$
+设$S\subseteq \Gamma$ 为$\Gamma$的任何有穷子集，不妨设$\{a_0,...,a_n\}$
 
-为出现在$S$中的全体常元，令$M=\{a_0,...,a_n)\},MAP[s]$可着4色
+为出现在$S$中的全体常元，令$M=\{a_0,...,a_n\},MAP[s]$为$\{a_0,\dots,a_n\}$的生成子图. 	从而$MAP[s]$可着4色. 
 
-令$C_{km}=\{a_i|a_i$着$k$色$i\leq n\}k=1,...,4$
+令$C_{kM}=\{a_i|a_i$着$k$色$i\leq n\}k=1,...,4$
 
-$q_m =\{<a_i,a_j>|<i,j>\in Q\}$从而$m \vDash S$
+$q_M =\{<a_i,a_j>|<i,j>\in Q\}$从而$\mathfrak{M} \vDash S$
 
-由compactness知有m使$m\vDash \Gamma $即MAP可4色.
-
-\section{}
-反设，对任何$m\in N$ 都存在结构$m=(M,I)$使
-
-$m <|M| < \aleph_0$ 且$m\vDash \neg  \varpi $
-
-令 $\varphi_n$ 为 $\exists x_1 \exists x_2 ... \exists x_n (\vee_{0<i<j\leq n}\neg (x_i \doteq x_j))$
-
-易见(1)$ m\vDash \varphi_n \Rightarrow |M|\geq n$. (2)当$m<n$时,$m\vDash \varphi_n \Rightarrow m\vDash \varphi_m$ 
-(3)$m\vDash {\varphi_1,\varphi_2...} \Rightarrow |M|\geq \aleph_0$
-
-令$\Gamma =\{ \neg  \varphi, \varphi, ..., \varphi_n ,...\} = \{ \neg \phi \}\cup \{\varphi_n |n \in N^+\}$
-
-对于有穷集$S \subseteq \Gamma$, 有$k$使$S\subseteq \{ \neg  \varphi, \varphi, ..., \varphi_n ,...\} $
-
-从而由反设知$S$有模型,因此由紧致定理知,$\Gamma$ 有模型,设为$m' = (M',I')$,从而
-
-$m'\vDash \{\varphi_1, ..., \varphi_n...\}$,因此$|M|\geq \aleph_0$且
-
-$m' \vDash \neg \varphi$ 与题设矛盾.
-
+由compactness知有$\mathfrak{M}$使$\mathfrak{M}\vDash \Gamma $即$MAP$可4染色.
 
 \section{}
+反设，对任何$m\in \mathbb{N}$ 都存在结构$\mathfrak{M}=(M,I)$使
 
-反设存在这样的$\Sigma$.令$\{C_n|n \in N\}$为新常元
+$m <|M| < \aleph_0$ 且$\mathfrak{M}\vDash \neg  \varphi $
 
-集，令$\mathbb{L'}\doteq \mathbb{L} \cup \{C_n | n \in N\}$,
+令 $\varphi_n$ 为 $\exists x_1 \exists x_2 ... \exists x_n (\wedge_{0<i<j\leq n}\neg (x_i \doteq x_j))$
 
-$\Sigma' \doteq \Sigma \cup \{R (C_{n+1}),C_n),\neg (C_{n+1}\doteq C_n)| n\in N\}$
+易见(1)$ \mathfrak{M}\vDash \varphi_n \Rightarrow |M|\geq n$. (2)当$m<n$时,$\mathfrak{M}\vDash \varphi_n \Rightarrow \mathfrak{M}\vDash \varphi_m$ 
+(3)$\mathfrak{M}\vDash \{\varphi_1,\varphi_2...\} \Rightarrow |M|\geq \aleph_0$
+
+令$\Gamma =\{ \neg  \varphi, \varphi_1, ..., \varphi_n ,...\} = \{ \neg \varphi \}\cup \{\varphi_n |n \in N^+\}$
+
+对于有穷集$S \subseteq \Gamma$, 有$k$使$S\subseteq \{ \neg  \varphi, \varphi_1, ..., \varphi_n ,...\} $
+
+从而由反设知$S$有模型,因此由紧致定理知,$\Gamma$ 有模型,设为$\mathfrak{M'} = (M',I')$,从而
+
+$\mathfrak{M'}\vDash \{\varphi_1, ..., \varphi_n...\}$,因此$|M'|\geq \aleph_0$且
+
+$\mathfrak{M'} \vDash \neg \varphi$ 与题设矛盾.
+
+
+\section{}
+
+反设存在这样的$\Sigma$.令$\{c_n|n \in N\}$为新常元
+
+集，令$\mathscr{L'}\triangleq \mathscr{L} \cup \{c_n | n \in N\}$,
+
+$\Sigma' \triangleq \Sigma \cup \{R (c_{n+1},c_n),\neg (c_{n+1}\doteq c_n)| n\in N\}$
 
 
 因为$\Sigma$有一个无穷模型，所以$\Sigma'$的任何有穷子集有
 
-model ，从而$\Sigma'$有model，say，$m$,因此
+模型 ，从而$\Sigma'$有模型，设为$\mathfrak{M}$. 因此
 
-$m \vDash \Sigma,$令 $R_M$为<, $(C_n)_M$为$a_n$从而
+$\mathfrak{M} \vDash \Sigma$. 令$R_M$为$<$, $(c_n)_M$为$a_n$从而
 
 $a_0>a_1>a_2...$为无穷下降链，从而
 
-${a_n | n \in N}$ has no the least element.
+$\{a_n | n \in \mathbb{N}\}$ 没有最小元.
 
-故$R_m$并非$M$上的良序.矛盾
+故$R_M$并非$M$上的良序.矛盾
 
-
-
-
-\end{CJK*}
-
-\begin{CJK*}{UTF8}{bsmi}
-\end{CJK*}
 
 \end{document}
