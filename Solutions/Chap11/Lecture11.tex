@@ -18,7 +18,7 @@
 %\date{}
 \begin{document}
 
-\title{数理逻辑第十一讲习题参考答案\footnote{Ver. 0.1. 原答案由宋方敏教授给出手稿, 乔羽同学录入, 最后由丁超同学修订补充. 此文档来源为\url{https://github.com/sleepycoke/Mathematical_Logic_NJUCS}由于时间紧张，丁超只更正了比较明显的笔误, 没有仔细验证, 见谅. 
+\title{数理逻辑第十一讲习题参考答案\footnote{Ver. 0.2. 原答案由宋方敏教授给出手稿, 乔羽同学录入, 最后由丁超同学修订补充. 此文档来源为\url{https://github.com/sleepycoke/Mathematical_Logic_NJUCS}由于时间紧张，丁超只更正了比较明显的笔误, 没有仔细验证, 见谅. 
  欢迎各位同学提出意见共同维护. 
 }}
 \maketitle
@@ -58,15 +58,15 @@ $\Delta \subseteq \{ (x > S^n0) | n=0,1,2,..,k\}$
 
 由紧致性定理知$\Gamma \cup \{\neg \varphi\}$可满足，设
 
-$\mathfrak{M} \vDash \Gamma \cup\{\neg \varphi\}$从而$\Gamma \vDash \varphi$知$\mathfrak{M} \vDash \varphi$
+$\mathfrak{M} \vDash \Gamma \cup\{\neg \varphi\}$. 即$\mathfrak{M} \vDash \Gamma$且$\mathfrak{M} \vDash \neg\varphi$, 与$\Gamma \models \varphi$矛盾. 
 
-矛盾！
+因此存在$\Gamma$的有穷子集$\Delta$使$\Delta \models \varphi$. 
 
 \section{}
 
 令$\varphi \equiv \exists x_1,...,x_n. \mathbb{M}_{1\leq i\leq j\leq n} \neg (x_i \doteq x_j)$
 
-易见$\mathfrak{M} \models \varphi_n \Longleftrightarrow |M|\geq n$
+易见$\mathfrak{M} \models \varphi_n \Leftrightarrow |M|\geq n$
 
 $\mathfrak{M} \models \{ \varphi_i | i\in \mathbb{N}^+ \} \Leftrightarrow |M|\geq \aleph_0$
 
