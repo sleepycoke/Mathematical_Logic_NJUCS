@@ -72,7 +72,21 @@ $$\vdash [(\forall x P(x) \wedge \forall y Q(y)) \rightarrow \exists z P(z)]\lef
 \end{itemize}
 综上, $FV(A^s) = \emptyset$. 
 \end{proof}
-
+%\section{}
+黄毅飞: 上述证明存在问题，这里给出一个新的证明
+\begin{proof}
+我们证明一个更强的结论，$FV(A^s) \subset FV(A)$\\
+\begin{itemize}
+	\item[Basis] $n = 0$. 此时$A^s = A$, 从而$FV(A^s) \subset FV(A)$.
+	\item[I.H.:] $n \le k$时$FV(A^s) \subset FV(A)$.
+	\item[I.S.:] 设 $n = k + 1$，$A$呈形$Q x B$, 从而$B$的量词个数为$k$，以及$FV(A) = FV(B) \backslash \{x\}$。
+	
+	若$Q$为$\forall$，那么$A^s = \forall x B^s$，则$FV(A^s) = FV(B^s) \backslash \{x\}$。又根据归纳假设有$FV(B^s) \subset FV(B)$，有$FV(A^s) = FV(B^s) \backslash \{x\} \subset FV(B) \backslash \{x\} = FV(A)$。
+	
+	若$Q$为$\exists$，那么$FV(A) = \{x_1,x_2,...,x_i\}$，从而$A^s = B[\frac{f(x_1,x_2,...,x_i)}{x}]$。注意到$A^s$的量词只有$k$个，因此根据归纳假设我们直接有$FV(A^s) \subset FV(A)$。					
+\end{itemize}
+综上, $FV(A^s)  \subset FV(A)$，从而有$FV(A) = \emptyset \rightarrow FV(A^s) = \emptyset$
+\end{proof}
 \section{}
 先给出一个语义证明:
 
