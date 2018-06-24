@@ -19,7 +19,7 @@
 %\date{}
 \begin{document}
 
-\title{数理逻辑第七讲习题参考答案\footnote{Ver. 1.2. 原答案由宋方敏教授给出手稿, 乔羽同学录入, 最后由丁超同学修订补充. 此文档来源为{\url{https://github.com/sleepycoke/Mathematical_Logic_NJUCS}},
+\title{数理逻辑第七讲习题参考答案\footnote{Ver. 1.3. 原答案由宋方敏教授给出手稿, 乔羽同学录入, 最后由丁超同学修订补充. 此文档来源为{\url{https://github.com/sleepycoke/Mathematical_Logic_NJUCS}},
  欢迎各位同学提出意见共同维护. 
 }}
 \maketitle
@@ -55,37 +55,20 @@ $$\vdash [(\forall x P(x) \wedge \forall y Q(y)) \rightarrow \exists z P(z)]\lef
 
 
 \section{}
-此答案由孙旭东的板书精简得.
+丁超在简写孙旭东的板书时引入了一个明显且致命的错误, 感谢黄毅飞指出它并给出另一个证明: 我们证明一个更强的结论，$FV(A^s) \subseteq FV(A)$
 \begin{proof}
-设A中量词的个数为$n$,下面对$n$作归纳证明.
+设$A$的量词数为$n$, 我们对$n$进行归纳证明. 
 \begin{itemize}
-	\item[Basis:] $n = 0$. 此时$A^s = A$, 从而$FV(A^s) = FV(A) = \emptyset$. 
-	\item[I.H.:] $n \le k$时$FV(A^s) = \emptyset$. 
-
-	\item[I.S.:] 设$n = k + 1$， $A$呈形$Q x B$, 从而$B$的量词个数为$k$, 且$FV(B)\subseteq FV(A)$. 又$FV(A) = \emptyset$, 则$FV(B) = \emptyset$. 由归纳假设有$FV(B^s) = FV(B) = \emptyset$. 
+	\item[Basis:] $n = 0$. 此时$A^s = A$, 从而$FV(A^s) \subseteq FV(A)$.
+	\item[I.H.:] $n \le k$时$FV(A^s) \subseteq FV(A)$. 
+	\item[I.S.:] 设 $n = k + 1$, $A$呈形$Q x B$, 从而$B$的量词个数为$k$, 以及$FV(A) = FV(B) \backslash \{x\}$. 
 	
-		若$Q$为$\forall$, 那么$A^s = \forall x B^s$.  而又由于$FV(A^s) = FV(B^s) \backslash \{x\}$, $FV(A^s) = \emptyset$. 
-		
-		若$Q$为$\exists$, 那么由$FV(A)= \emptyset$有$A^s = (B[\frac{c}{x}])^s$, $c$为新常元. 
-		注意到$B[\frac{c}{x}]$的量词个数不超过$k$且$FV(B[\frac{c}{x}]) = FV(B) \backslash \{x\} = \emptyset $, 那么由归纳假设$FV((B[\frac{c}{x}]^s) = \emptyset$. 
-		最后$FV(A^s) = FV((B[\frac{c}{x}])^s) = FV(B^s) =\emptyset$.  
+	若$Q$为$\forall$, 那么$A^s = \forall x B^s$，则$FV(A^s) = FV(B^s) \backslash \{x\}$. 又根据归纳假设有$FV(B^s) \subseteq FV(B)$, 有$FV(A^s) = FV(B^s) \backslash \{x\} \subseteq FV(B) \backslash \{x\} = FV(A)$. 
+	
+	若$Q$为$\exists$, 那么不妨设$FV(A) = \{x_1,x_2,...,x_i\}$($FV(A)=\emptyset$情况类似, 不赘述), 从而$A^s = (B[\frac{f(x_1,x_2,...,x_i)}{x}])^s$. 注意到$B[\frac{f(x_1,x_2,...,x_i)}{x}]$的量词只有$k$个, 因此根据归纳假设我们有$FV((B[\frac{f(x_1,x_2,...,x_i)}{x}])^s) \subseteq FV(B[\frac{f(x_1,x_2,...,x_i)}{x}])$. 	另有$FV(B[\frac{f(x_1,x_2,...,x_i)}{x}]) \subseteq FV(A)$, 整体有
+	$$FV(A^s)=FV((B[\frac{f(x_1,x_2,...,x_i)}{x}])^s)  \subseteq FV(A).$$ 			
 \end{itemize}
-综上, $FV(A^s) = \emptyset$. 
-\end{proof}
-%\section{}
-黄毅飞: 上述证明存在问题，这里给出一个新的证明
-\begin{proof}
-我们证明一个更强的结论，$FV(A^s) \subset FV(A)$\\
-\begin{itemize}
-	\item[Basis] $n = 0$. 此时$A^s = A$, 从而$FV(A^s) \subset FV(A)$.
-	\item[I.H.:] $n \le k$时$FV(A^s) \subset FV(A)$.
-	\item[I.S.:] 设 $n = k + 1$，$A$呈形$Q x B$, 从而$B$的量词个数为$k$，以及$FV(A) = FV(B) \backslash \{x\}$。
-	
-	若$Q$为$\forall$，那么$A^s = \forall x B^s$，则$FV(A^s) = FV(B^s) \backslash \{x\}$。又根据归纳假设有$FV(B^s) \subset FV(B)$，有$FV(A^s) = FV(B^s) \backslash \{x\} \subset FV(B) \backslash \{x\} = FV(A)$。
-	
-	若$Q$为$\exists$，那么$FV(A) = \{x_1,x_2,...,x_i\}$，从而$A^s = B[\frac{f(x_1,x_2,...,x_i)}{x}]$。注意到$A^s$的量词只有$k$个，因此根据归纳假设我们直接有$FV(A^s) \subset FV(A)$。					
-\end{itemize}
-综上, $FV(A^s)  \subset FV(A)$，从而有$FV(A) = \emptyset \rightarrow FV(A^s) = \emptyset$
+综上, $FV(A^s)  \subseteq FV(A)$，从而有$FV(A) = \emptyset \Rightarrow FV(A^s) = \emptyset$
 \end{proof}
 \section{}
 先给出一个语义证明:
