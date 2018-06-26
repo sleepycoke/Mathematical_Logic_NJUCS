@@ -1,0 +1,214 @@
+\documentclass{article}
+\usepackage{ctex}
+\usepackage{fontspec, xunicode, xltxtra}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{enumerate}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\usepackage{bussproofs}
+\usepackage[a4paper,top=30mm,bottom=30mm,left=30mm,right=30mm]{geometry}
+\EnableBpAbbreviations
+\newcommand{\vv}[0]{\vdash\dashv}
+\newcommand{\rl}[1]{\RightLabel{$#1$}}
+\def\fCenter{\ \vdash \ }
+\renewcommand{\today}{\number\year 年 \number\month 月 \number\day 日}
+
+\setlength\parindent{0pt}
+\vspace{-8ex}
+%\date{}
+\begin{document}
+
+\title{数理逻辑第十讲习题参考答案\footnote{Ver. 1.0. 原答案由宋方敏教授给出手稿, 由丁超同学录入并修订补充. 此文档来源为\url{https://github.com/sleepycoke/Mathematical_Logic_NJUCS}
+ 欢迎各位同学提出意见共同维护. 
+}}
+\maketitle
+
+\section*{习题10.1}
+由于这两套系统的推理规则相同, 只要保证一套系统的公理在另一套系统内可证即可保证证明树存在, 从而矢列保持可证. 
+\subsection*{``$\Rightarrow$''}
+$A\vdash A$为$\Gamma, A, \Delta \vdash \Pi, A, \Lambda$的特例, 故其为$LK'$中的公理, 也就在$LK'$中可证.  
+\subsection*{``$\Leftarrow$''}
+首先证明以下引理: 
+
+对于任何公式$A$, 有$A\vdash A$在$LK$中可证. (*)
+
+下面对$A$的结构进行归纳证明. 
+\begin{enumerate}[情况1: ]
+	\item[Basis: ] $A$是原子公式, 从而$A\vdash A$是$LK$的公理, 故(*)成立. 
+	\item[I.H.: ]对于复合公式$A$的所有真子公式$B$都有$B\vdash B$在$LK$中可证. 
+	\item[I.S.: ]对复合公式$A$的最外层的逻辑联结词进行讨论: 
+	\item $A$形为$\neg B$, 由归纳假设, $B\vdash B$在$LK$中可证, 从而有
+	\begin{prooftree}
+		\Axiom$B \fCenter B$
+		\rl{\neg L, \neg R}
+		\doubleLine
+		\UI $\neg B \fCenter \neg B$
+	\end{prooftree}
+
+	\item $A$形为$B \rightarrow C$, 由归纳假设$B \vdash B$和$C\vdash C$在$LK$中可证, 从而有
+	\begin{prooftree}
+		\AX$B \fCenter B$ \rl{WR}
+		\UI$B \fCenter B, C$ \rl{ER}
+		\UI$B \fCenter C, B$ 
+		\AX$C \fCenter C$ \rl{WL}
+		\UI$B, C \fCenter C$ \rl{EL}
+		\UI$C, B \fCenter C$ \rl{\rightarrow L}
+		\BI$B\rightarrow C, B \fCenter C$ \rl{EL}
+		\UI$B, B \rightarrow C \fCenter C$ \rl{\rightarrow R}
+		\UI$B\rightarrow C \fCenter B\rightarrow C$
+	\end{prooftree}
+	\item $A$形为$B \wedge C$或$B\vee C$, 同理可证. 
+	\item $A$形为$\forall x B(x)$, 由归纳假设, $B(a) \vdash B(a)$在$LK$中可证. 从而有: 
+	\begin{prooftree}
+		\AX$B(a) \fCenter B(a)$ \rl{\forall L}
+		\UI$\forall x B(x) \fCenter B(a)$ \rl{\forall R}
+		\UI$\forall x B(x) \fCenter \forall x B(x)$
+	\end{prooftree}
+	\item $A$形为$\exists x B(x)$与上同理. 
+\end{enumerate}
+	综上(*)成立. 
+\bigbreak
+	接下来我们证明$\Gamma, A, \Delta \vdash \Pi, A, \Lambda$在$LK$中可证. 我们已证$A\vdash A$可证, 从而有证明树:
+	\begin{prooftree}
+		\AX$A\fCenter A$\rl{WL, WR}
+		\doubleLine
+		\UI $\Gamma, \Delta, A \fCenter A, \Pi, \Lambda$ \rl{EL, ER}
+		\doubleLine
+		\UI $\Gamma, A, \Delta \fCenter \Pi, A, \Lambda$
+	\end{prooftree}
+	\qed
+	
+\section*{习题10.2}
+定义: 
+\begin{align*}
+	R_1 &\triangleq \{(A, B)|A \in sub(B)\}\\
+	R_2 &\triangleq \{(A, B)|A \text{是$B$的前辈}\}\\
+	R_3 &\triangleq \{(A, B)|A \text{是$B$的立接前辈}\}
+\end{align*}
+易见$R_1$满足传递性, 且$R_2$是$R_3$的传递闭包. 
+所以只需证
+\begin{center}
+\emph{若$C$为$D$的立接前辈, 则$C$为$D$的子公式...(*).}
+\end{center}
+
+设$C$与$D$分别在规则$J$的上矢列和下矢列中. 
+\begin{enumerate}[情况1: ]
+	\item $J$为$Cut$, 由于$Cut$公式没有立接后辈, 从而$C$只能是旁公式. 
+	\item $C$为旁公式, 从而$D=C$, (*)成立. 
+	\item $J$为$Exchange$, $C$为$J$的辅公式, $D$为主公式, 从而$D=C$, (*)成立. 
+	\item $J$不是$Exchange$或$Cut$, $C$为$J$的辅公式, $D$为主公式；可逐个验证$C$是$D$的子公式. 
+\end{enumerate}
+综上(*)成立. 
+\qed
+
+\section*{习题10.3}
+\begin{prooftree}
+	\AX$A(a) \fCenter A(a)$\rl{WR}
+	\UI$A(A) \fCenter B, A(a)$\rl{\rightarrow R}
+	\UI$\fCenter A(a)\rightarrow B, A(a)$\rl{\exists R}
+	\UI$\fCenter \exists x(A(x)\rightarrow B), A(a)$\rl{\forall R}
+	\UI$\fCenter \exists x A(x) \rightarrow B, \forall x A(x)$
+	\AX$B\fCenter B$\rl{WL}
+	\UI$A(a), B\fCenter B$\rl{\rightarrow R}
+	\UI$B\fCenter A(a)\rightarrow B$\rl{\exists R}
+	\UI$B\fCenter \exists x(A(x) \rightarrow B)$\rl{\rightarrow L}
+	\BI$\forall x A(x) \rightarrow B \fCenter \exists x(A(x)\rightarrow B)$
+\end{prooftree}
+
+\qed
+
+\section*{习题10.4}
+对$P(a)$的深度$n$归纳证明:
+
+\begin{enumerate}[情况1: ]
+	\item[Basis: ]$n = 0$, $P(a)$为公理, 设其呈形$A(a)\vdash A(a)$. 从而$P(t)$为$A(t)\vdash A(t)$, 也为公理, 于是$P(t)$为证明树. 
+	\item[I.H.: ]$n \le k$时, 有$P(t)$为证明树. 
+	\item[I.S.: ]往证当$n = k + 1$时, $P(t)$同样是证明树. 
+	\item $P(a)$呈形
+		\AXC{$Q(a)$}\rl{J}
+		\UIC{$B(a)$}
+		\DP
+		其中$Q(a)$是深度为$k$的证明树, $B(a)$为$P(a)$的终矢列. 
+		以下仅证明$J$为$\forall R$的情况, 其它情况类似. 
+		我们设$Q(a)$的终矢列$C(a)$呈形
+		$\Gamma(a)\vdash \Delta(a), A(a, b)$； $B(a)$呈形$\Gamma(a)\vdash \Delta(a), \forall x A(a, x)$. 由于$a$不是特征变元, $a \ne b, A(a, b)[\frac{t}{a}] = A(t, b)$, 那么$P(t)$最后一层推理呈形
+		\begin{prooftree}
+			\AX$\Gamma(t)\fCenter \Delta(t), A(t, b)$\rl{\forall R}
+			\UI$\Gamma(t)\fCenter \Delta(t), \forall x A(t, x)$
+		\end{prooftree}
+		由于$t$中不自由出现特征变元, 所以$b$是新变元, 这是有效推理. 又由归纳假设$C(t)$可证, 从而$P(t)$是证明树. 
+	\item $P(a)$呈形
+		\AXC{$Q(a)$}
+		\AXC{$R(a)$}\rl{J}
+		\BIC{$B(a)$}
+		\DP
+		同样由归纳假设$Q(t)$, $R(t)$为证明树. 再对推理规则逐条验证可证明$P(t)$为证明树. 不再赘述. 
+	\end{enumerate}
+\qed
+	
+	
+\section*{习题10.5}
+\subsection*{$Mix\Rightarrow Cut$}
+\begin{prooftree}
+	\AX$\Gamma \fCenter \Delta, A$
+	\AX$A, \Gamma \fCenter \Delta$\rl{Mix(A)}
+	\BI$\Gamma, \Gamma^* \fCenter \Delta^*, \Delta$\rl{Exchange, Contraction}
+	\doubleLine
+	\UI$\Gamma \fCenter \Delta$
+\end{prooftree}
+\subsection*{$Cut \Rightarrow Mix$}
+\begin{prooftree}
+	\AX$\Gamma \fCenter \Delta$\rl{ER, CR}
+	\doubleLine
+	\UI$\Gamma \fCenter \Delta^*, A$\rl{Weakening, Exchange}
+	\UI$\Gamma, \Pi^* \fCenter \Delta^*, \Lambda, A$
+	\AX$\Pi \fCenter \Lambda$\rl{EL, CL}
+	\UI$A, \Pi^* \fCenter \Lambda$\rl{Weakening, Exchange}
+	\doubleLine
+	\UI$A, \Gamma, \Pi^* \fCenter \Delta^*, \Lambda$\rl{Cut}
+	\BI$\Gamma, \Pi^* \fCenter \Delta^*, \Lambda$
+\end{prooftree}
+\qed
+
+\section*{习题10.6}
+利用习题10.2, 只需证任何公式都有在终矢列的后辈. 
+对除$Cut$之外的规则逐条验证上矢列中的公式都有后辈即可. 
+%太烦了不想写, 宋老师也没写
+
+\section*{习题10.7}
+反设$\vdash$可证, 那么它有一个无切证明树$T$. 设$T$的一个叶子为$A\vdash A$, 那么$A$不可能是终矢列中任何公式的子公式, 与习题10.6矛盾. 
+
+于是$\vdash$不可证. 
+\qed
+
+\section*{习题10.8}
+反设$P(a)\vdash Q(a)$可证, 那么它存在一个无切证明树$T$. 由于$P(a)$与$Q(a)$皆为原子公式, 由习题10.6, $T$中出现的公式只能是二者之一. 于时$T$中不能出现逻辑规则, 只能有三种弱规则. 
+
+注意到这三种规则都只有一个上矢列, 从而$T$只有一个叶子, 设其呈形$A\vdash A$. 若$A = P(a)$,注意到$CR$不能将$P(a)$从后件完全消除, $WR$与$ER$不会消除公式, 从而$T$中所有矢列的后件都会有$P(a)$那么, $P(a)\vdash Q(a)$不可能在$T$中. $A = Q(a)$同理. 
+
+于是, $P(a)\vdash Q(a)$不可证. 
+\qed
+
+
+
+\section*{习题10.9}
+根据习题10.1我们有以下证明树的叶子可证: 
+\begin{prooftree}
+	\AX$A, B \fCenter C, A$
+	\AX$A, B \fCenter C, B$
+	\AX$C, A, B \fCenter C$ \rl{\rightarrow L}
+	\BI$B\rightarrow C, A, B \fCenter C$ \rl{\rightarrow L}
+	\BI$A\rightarrow(B\rightarrow C), A, B \fCenter C$\rl{EL}
+	\doubleLine
+	\UI$A, B, A\rightarrow(B\rightarrow C) \fCenter C$\rl{\rightarrow R}
+	\UI$B, A\rightarrow(B\rightarrow C) \fCenter A\rightarrow C$\rl{\rightarrow R}
+	\UI$A\rightarrow(B\rightarrow C) \fCenter B\rightarrow A\rightarrow C$
+
+
+\end{prooftree}
+\qed
+
+\end{document}
