@@ -18,7 +18,7 @@
 %\date{}
 \begin{document}
 
-\title{数理逻辑第十一讲习题参考答案\footnote{Ver. 0.3. 原答案由宋方敏教授给出手稿, 乔羽同学录入, 最后由丁超同学修订补充. 此文档来源为\url{https://github.com/sleepycoke/Mathematical_Logic_NJUCS}由于时间紧张，丁超只更正了比较明显的笔误, 没有仔细验证, 见谅. 
+\title{数理逻辑第十一讲习题参考答案\footnote{Ver. 0.4. 原答案由宋方敏教授给出手稿, 乔羽同学录入, 最后由丁超同学修订补充. 此文档来源为\url{https://github.com/sleepycoke/Mathematical_Logic_NJUCS}由于时间紧张，丁超只更正了比较明显的笔误, 没有仔细验证, 见谅. 
  欢迎各位同学提出意见共同维护. 
 }}
 \maketitle
@@ -64,13 +64,13 @@ $\mathfrak{M} \vDash \Gamma \cup\{\neg \varphi\}$. 即$\mathfrak{M} \vDash \Gamm
 
 \section{}
 
-令$\varphi \equiv \exists x_1,...,x_n. \mathfrak{M}_{1\leq i\leq j\leq n} \neg (x_i \doteq x_j)$
+令$\varphi_n \triangleq \exists x_1,...,x_n. \bigwedge_{1\leq i < j\leq n} \neg (x_i \doteq x_j)$
 
 易见$\mathfrak{M} \models \varphi_n \Leftrightarrow |M|\geq n$
 
 $\mathfrak{M} \models \{ \varphi_i | i\in \mathbb{N}^+ \} \Leftrightarrow |M|\geq \aleph_0$
 
-令$\Gamma =\Sigma \cup \{ \varphi_i | i \in \mathbb{N}^+ \}$，对于任何$\Gamma$的
+令$\Gamma \triangleq \Sigma \cup \{ \varphi_i | i \in \mathbb{N}^+ \}$，对于任何$\Gamma$的
 
 有穷子集$\Delta \subseteq \Sigma \cup \{ \varphi_i | i  \in \mathbb{N}^+ \} $，存在$k$使
 
@@ -99,9 +99,9 @@ $\{a_i |i\in I\}$,这里$|I|\geq \aleph_0$.
 
 (3)二元谓词：$g(x,y)$\{$g(x,y)$表示$x$与$y$有大于0的公共边界\}.
 
-令$Q = \{<i,j>|i,j\in I\}$且在MAP中$a_i$与$a_j$有大于0的公共边界.
+令$Q \triangleq \{<i,j>|i,j\in I\}$且在MAP中$a_i$与$a_j$有大于0的公共边界.
 
-令$\Gamma = \{q(a_i,a_j) | <i,j> \in Q\}$
+令$\Gamma \triangleq \{q(a_i,a_j) | <i,j> \in Q\}$
 
 $\cup \{\neg q(a_i,a_j) | <i,j> \notin Q\}$
 
@@ -113,23 +113,23 @@ $\cup\{ \forall x \forall y (q(x, y)\rightarrow (\neg (c_1(x)\wedge c_1(y))  \we
 
 为出现在$S$中的全体常元，令$M=\{a_0,...,a_n\},MAP[s]$为$\{a_0,\dots,a_n\}$的生成子图. 	从而$MAP[s]$可着4色. 
 
-令$C_{kM}=\{a_i|a_i$着$k$色$i\leq n\}k=1,...,4$
+令$C_{kM} \triangleq \{a_i|a_i$着$k$色$i\leq n\}k=1,...,4$
 
 $q_M =\{<a_i,a_j>|<i,j>\in Q\}$从而$\mathfrak{M} \vDash S$
 
 由compactness知有$\mathfrak{M}$使$\mathfrak{M}\vDash \Gamma $即$MAP$可4染色.
 
 \section{}
-反设，对任何$m\in \mathbb{N}$ 都存在结构$\mathfrak{M}=(M,I)$使
+反设，对任何$m\in \mathbb{N}$ 都存在结构$\mathfrak{M} \triangleq (M,I)$使
 
 $m <|M| < \aleph_0$ 且$\mathfrak{M}\vDash \neg  \varphi $
 
-令 $\varphi_n$ 为 $\exists x_1 \exists x_2 ... \exists x_n (\wedge_{0<i<j\leq n}\neg (x_i \doteq x_j))$
+令 $\varphi_n$ 为 $\exists x_1 \exists x_2 ... \exists x_n (\bigwedge_{0<i<j\leq n}\neg (x_i \doteq x_j))$
 
 易见(1)$ \mathfrak{M}\vDash \varphi_n \Rightarrow |M|\geq n$. (2)当$m<n$时,$\mathfrak{M}\vDash \varphi_n \Rightarrow \mathfrak{M}\vDash \varphi_m$ 
 (3)$\mathfrak{M}\vDash \{\varphi_1,\varphi_2...\} \Rightarrow |M|\geq \aleph_0$
 
-令$\Gamma =\{ \neg  \varphi, \varphi_1, ..., \varphi_n ,...\} = \{ \neg \varphi \}\cup \{\varphi_n |n \in N^+\}$
+令$\Gamma \triangleq \{ \neg  \varphi, \varphi_1, ..., \varphi_n ,...\} = \{ \neg \varphi \}\cup \{\varphi_n |n \in N^+\}$
 
 对于有穷集$S \subseteq \Gamma$, 有$k$使$S\subseteq \{ \neg  \varphi, \varphi_1, ..., \varphi_n ,...\} $
 
