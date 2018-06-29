@@ -25,7 +25,7 @@
   \item $\mathfrak{F} = (W, R)$，其中$W = \{a, b, c\}$, $R = \{(a, b), (a, c)\}$，则对于标记函数$L = \{(a, \varnothing), (b, \{p\}), (c, \varnothing)\}$，在模型$(\mathfrak{F}, L)$ 下，公式$\lozenge p \rightarrow \square p$ 在状态$a$上非真，从而该公式在上述框架下非有效。
 
   该公式在满足对于任意$u \in W$，存在至多一个$v \in W$使得$Ruv$的框架$\mathfrak{F} = (W, R)$上均有效。
-  \item $\mathfrak{F} = (W, R)$，其中$W = \{a, b\}$, $R = \{(a, b)\}$，则对于标记函数$L = \{(a, \{p\}), (b,\varnothing)\}$，在模型$(\mathfrak{F}, L)$ 下，公式$p \rightarrow \lozenge \square p$ 在状态$a$上非真，从而该公式在前述框架下非有效。
+  \item $\mathfrak{F} = (W, R)$，其中$W = \{a, b\}$, $R = \{(a, b)\}$，则对于标记函数$L = \{(a, \{p\}), (b,\varnothing)\}$，在模型$(\mathfrak{F}, L)$ 下，公式$p \rightarrow \square \lozenge  p$ 在状态$a$上非真，从而该公式在前述框架下非有效。
 
   该公式在所有对称框架下均有效。
   \item $\mathfrak{F} = (W, R)$，其中$W = \{a, b, c, d\}$, $R = \{(a, b), (b, c), (b, d)\}$，则对标记函数$L = \{(a, \varnothing), (b,\varnothing), $  $(c, \{p\}), (d,\varnothing) \}$，在模型$(\mathfrak{F}, L)$ 下，公式$\square \lozenge p \rightarrow \lozenge \square p$ 在状态$a$上非真，从而该公式在前述框架下非有效。
@@ -38,8 +38,8 @@
   \item[(a)] 1, 2, 3, 4
   \item[(b)] 无
   \item[(c)] 1, 2, 3, 4
-  \item[(h)] 4
-  \item[(k)] 1
+  \item[(h)] 1, 2, 3, 4
+  \item[(k)] 1\footnote{丁超注: $\forall(y \mathcal{U} r)$ 只在状态1上有效, 因为其它结点都有不经过标记$r$的全路径. }
 \end{enumerate}
 
 \section*{6}
