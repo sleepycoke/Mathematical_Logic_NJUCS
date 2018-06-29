@@ -1,0 +1,116 @@
+\documentclass{article}
+\usepackage{ctex}
+\usepackage{fontspec, xunicode, xltxtra}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage[a4paper,top=30mm,bottom=30mm,left=30mm,right=30mm]{geometry}
+\usepackage[shortlabels]{enumitem}
+\usepackage{bussproofs}
+
+\setmainfont{Times New Roman}
+\newcommand{\combine}[2]{{C_{#1}^{#2}}}
+
+\setlist{nolistsep}
+
+\begin{document}
+\title{数理逻辑作业}
+\author{陈劭源 \and 161240004}
+\maketitle
+
+\section*{3}
+\begin{enumerate}[(a)]
+  \item $\mathfrak{F} = (W, R)$，其中$W = \{a, b\}$, $R = \{(a, b)\}$，则对于状态$a$，$\square \bot$不成立（无论标记函数是什么），从而$\square \bot$ 在该框架下非有效。
+
+  该公式在满足$R = \varnothing$的框架$\mathfrak{F} = (W, R)$上均有效。
+
+  \item $\mathfrak{F} = (W, R)$，其中$W = \{a, b, c\}$, $R = \{(a, b), (a, c)\}$，则对于标记函数$L = \{(a, \varnothing), (b, \{p\}), (c, \varnothing)\}$，在模型$(\mathfrak{F}, L)$ 下，公式$\lozenge p \rightarrow \square p$ 在状态$a$上非真，从而该公式在上述框架下非有效。
+
+  该公式在满足对于任意$u \in W$，存在至多一个$v \in W$使得$Ruv$的框架$\mathfrak{F} = (W, R)$上均有效。
+  \item $\mathfrak{F} = (W, R)$，其中$W = \{a, b\}$, $R = \{(a, b)\}$，则对于标记函数$L = \{(a, \{p\}), (b,\varnothing)\}$，在模型$(\mathfrak{F}, L)$ 下，公式$p \rightarrow \lozenge \square p$ 在状态$a$上非真，从而该公式在前述框架下非有效。
+
+  该公式在所有对称框架下均有效。
+  \item $\mathfrak{F} = (W, R)$，其中$W = \{a, b, c, d\}$, $R = \{(a, b), (b, c), (b, d)\}$，则对标记函数$L = \{(a, \varnothing), (b,\varnothing), $  $(c, \{p\}), (d,\varnothing) \}$，在模型$(\mathfrak{F}, L)$ 下，公式$\square \lozenge p \rightarrow \lozenge \square p$ 在状态$a$上非真，从而该公式在前述框架下非有效。
+
+  该公式在状态转换图呈一个环形的所有框架下均有效。
+\end{enumerate}
+
+\section*{4}
+\begin{enumerate}[(a)]
+  \item[(a)] 1, 2, 3, 4
+  \item[(b)] 无
+  \item[(c)] 1, 2, 3, 4
+  \item[(h)] 4
+  \item[(k)] 1
+\end{enumerate}
+
+\section*{6}
+\subsection*{$(\square p \wedge \lozenge q) \rightarrow \lozenge (p \wedge q)$的$\mathbf{K}$-证明}
+\begin{enumerate}
+  \item $\square (p \rightarrow q) \rightarrow (\square p \rightarrow \square q)$ \hfill $\mathbf{K}$
+  \item $\square (p \rightarrow \neg q) \rightarrow (\square p \rightarrow \square \neg q)$ \hfill $\mathbf{US}: 1$
+  \item $(p \rightarrow q) \rightarrow \neg(p \wedge \neg q)$ \hfill $\mathbf{TAUT}$
+  \item $(\square p \rightarrow \square \neg q) \rightarrow \neg(\square p \wedge \neg \square \neg q)$ \hfill $\mathbf{US}: 3$
+  \item $\square (p \rightarrow \neg q) \rightarrow \neg(\square p \wedge \neg \square \neg q)$ $\hfill \mathbf{PL}: 2, 3$
+
+  \item $\square(\neg (p \wedge q) \rightarrow (p \rightarrow \neg q)) $ \hfill $\mathbf{N: TAUT}$
+  \item $\square(\neg (p \wedge q) \rightarrow (p \rightarrow \neg q)) \rightarrow (\square \neg (p \wedge q)) \rightarrow \square (p \rightarrow \neg q))$ \hfill $\mathbf{US}: 1$
+  \item $(\square\neg (p \wedge q)) \rightarrow \square (p \rightarrow \neg q)$ \hfill $\mathbf{MP}: 6, 7$
+  \item $(\square\neg (p \wedge q)) \rightarrow \neg(\square p \wedge \neg \square \neg q)$ \hfill $\mathbf{PL}: 8, 5$
+  \item $(\square p \wedge \neg \square \neg q) \rightarrow (\neg \square\neg (p \wedge q))$ \hfill $\mathbf{PL}: 9$
+
+  \item $(\square p \wedge \lozenge q) \rightarrow \lozenge (p \wedge q)$ \hfill $\mathbf{PL}: 10, \mathbf{DUAL}, (\mathbf{US: DUAL})$
+\end{enumerate}
+
+\subsection*{$\lozenge(p \vee q) \leftrightarrow (\lozenge p \vee \lozenge q)$的$\mathbf{K}$-证明}
+\begin{enumerate}
+  \item $\square (p \wedge q \rightarrow p)$ \hfill $\mathbf{N: TAUT}$
+  \item $\square (p \wedge q \rightarrow p) \rightarrow (\square (p \wedge q) \rightarrow \square p)$ \hfill $\mathbf{US: K}$
+  \item $\square (p \wedge q) \rightarrow \square p$ \hfill $\mathbf{MP}: 1, 2$
+  \item $\square (p \wedge q) \rightarrow \square q$ \hfill 同理
+  \item $\square (p \wedge q) \rightarrow (\square p \wedge \square q)$ \hfill $\mathbf{PL}: 3, 4$
+
+  \item $(\square p \wedge \square q) \rightarrow \square (p \wedge q)$ \hfill 课本例12.9
+  \item $(\square p \wedge \square q) \leftrightarrow \square (p \wedge q)$ \hfill $\mathbf{PL}: 5, 6$
+  \item $(\square \neg p \wedge \square \neg q) \leftrightarrow \square (\neg p \wedge \neg q)$ \hfill $\mathbf{US}: 7$
+  \item $(\neg \square \neg (p \vee q)) \leftrightarrow ((\neg \square \neg p) \vee (\neg \square \neg q))$ \hfill $\mathbf{PL}: 8$
+  \item $\lozenge(p \vee q) \leftrightarrow (\lozenge p \vee \lozenge q)$ \hfill $\mathbf{PL}: 9, \mathbf{DUAL}, (\mathbf{US: DUAL})$
+\end{enumerate}
+
+\section*{7}
+易验证$\mathbf{S4}$对于所有自反且传递的框架均是可靠的（新增加的$p \rightarrow \lozenge p$ 要求框架具有自反性）。为证明$p \rightarrow \square \lozenge p$在$\mathbf{S4}$中不可证，构造模型$\mathfrak{M} = (\mathfrak{F}, L)$，其中$\mathfrak{F} = (\{a, b\}, \{(a,a), (a,b), (b,b)\})$, $L = \{(a, \{p\}), (b, \varnothing)\}$。易验证框架$\mathfrak{F}$自反且传递，但$p \rightarrow \square \lozenge p$在该模型的状态$a$上不为真，从而该公式在$\mathbf{S4}$中不可证。
+
+记$\mathbf{S5}$系统中新增加的公理为：
+\begin{quote}
+\begin{description}
+  \item[$\mathbf{T'}$] $p \rightarrow \lozenge p$
+  \item[$\mathbf{4'}$] $\lozenge \lozenge p \rightarrow \lozenge p$
+  \item[$\mathbf{B}$] $p \rightarrow \square \lozenge p$
+\end{description}
+\end{quote}
+
+则$\lozenge \square p \rightarrow \square p$在该系统中的证明为：
+\begin{enumerate}
+  \item $p \rightarrow \square \lozenge p$ \hfill $\mathbf{B}$
+  \item $\lozenge \square p \rightarrow \square \lozenge \lozenge \square p$ \hfill $\mathbf{US}: 1$
+  \item $\lozenge \lozenge p \rightarrow \lozenge p$ \hfill $\mathbf{4'}$
+  \item $\lozenge \lozenge \square p \rightarrow \lozenge \square p$ \hfill $\mathbf{US}: 3$
+  \item $\square(\lozenge \lozenge \square p \rightarrow \lozenge \square p)$ \hfill $\mathbf{N}: 4$
+
+  \item $\square(\lozenge \lozenge \square p \rightarrow \lozenge \square p) \rightarrow (\square \lozenge \lozenge \square p \rightarrow \square \lozenge \square p)$ \hfill $\mathbf{US: K}$
+  \item $\square \lozenge \lozenge \square p \rightarrow \square \lozenge \square p$ \hfill $\mathbf{MP}: 5, 6$
+  \item $\neg p \rightarrow \square \lozenge \neg p$ \hfill $\mathbf{US}: 1$
+  \item $\square \neg \neg p \rightarrow \neg \lozenge \neg p$ \hfill $\mathbf{PL: (US: DUAL)}$
+  \item $\square (p \rightarrow \neg \neg p)$ \hfill $\mathbf{N: TAUT}$
+
+  \item $\square (p \rightarrow \neg \neg p) \rightarrow (\square p \rightarrow \square \neg \neg p)$ \hfill $\mathbf{US: K}$
+  \item $\square p \rightarrow \square \neg \neg p$ \hfill $\mathbf{MP}: 10, 11$
+  \item $\square p \rightarrow \neg \lozenge \neg p$ \hfill $\mathbf{PL}: 12, 9$
+  \item $\lozenge \neg p \rightarrow \neg \square p$ \hfill $\mathbf{PL}: 13$
+  \item $\square \lozenge \neg p \rightarrow \square \neg \square p$ \hfill $\mathbf{MP:(N}: 14 \mathbf{, US:K)}$
+
+  \item $\neg \square \neg \square p \rightarrow p$ \hfill $\mathbf{PL}: 8, 15$
+  \item $\neg \square \neg \square p \leftrightarrow \lozenge \square p$ \hfill $\mathbf{US: DUAL}$
+  \item $\lozenge \square p \rightarrow p$ \hfill $\mathbf{PL}: 17, 16$
+  \item $\square \lozenge \square p \rightarrow \square p$ \hfill $\mathbf{MP:(N}: 18 \mathbf{, US:K)}$
+  \item $\lozenge \square p \rightarrow \square p$ \hfill $\mathbf{PL}: 2, 7, 19$
+\end{enumerate}
+\end{document}
