@@ -48,12 +48,10 @@ We shall prove this by structural induction on $\varphi$.
 	Analogously, $\square \psi' \rightarrow \square \psi$. Therefore $\square \psi \leftrightarrow \square \psi'$.  
 	\item $\varphi = \lozenge \psi$ and we are replacing a $\lozenge$ inside $\psi$, then $\varphi' = \lozenge \psi'$.
 	\begin{enumerate}[(1)]
-		\item $\psi \leftrightarrow \psi'$ \hfill I.H.
-		\item $\neg \psi \leftrightarrow \neg \psi'$ \hfill PL:(1)
-		\item $\square \neg \psi \leftrightarrow \square \neg \psi'$ \hfill I.H.(Case 5):(2)
+		\item $\square \neg \psi \leftrightarrow \square \neg \psi'$ \hfill I.H.(Case 5)
 		\item $\lozenge \psi \leftrightarrow \neg \square \neg \psi$ \hfill I.H.(Case 1)
 		\item $\lozenge \psi' \leftrightarrow \neg \square \neg \psi'$ \hfill I.H.(Case 1)
-		\item $\lozenge \psi \leftrightarrow \lozenge \psi'$ \hfill PL:(3),(4),(5)
+		\item $\lozenge \psi \leftrightarrow \lozenge \psi'$ \hfill PL:(1),(2),(3)
 	\end{enumerate}
 	\end{enumerate}
 	
