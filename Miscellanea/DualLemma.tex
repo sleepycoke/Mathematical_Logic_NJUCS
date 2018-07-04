@@ -1,0 +1,64 @@
+\documentclass{article}
+
+\usepackage{fontspec, xunicode, xltxtra}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage[a4paper,top=30mm,bottom=30mm,left=30mm,right=30mm]{geometry}
+\usepackage{amsthm}
+\usepackage[shortlabels]{enumitem}
+
+\begin{document}
+\title{A Proof of Dual Replacement Lemma}
+\author{DING Chao}
+\maketitle
+
+Let $\varphi$ be a formula in basic modal and we denote $\varphi'$ as the formula obtained by replacing a ``$\lozenge$'' inside $\varphi$ with ``$\neg \square \neg$''. We claim that 
+	$$\vdash_K \varphi \leftrightarrow \varphi'. $$
+\begin{proof}
+	
+We shall prove this by structural induction on $\varphi$. 
+\begin{enumerate}[{Case} 1: ]
+	\item $\varphi = \lozenge \psi$ and we are replacing the first $\lozenge$, then $\varphi' = \neg \square \neg \varphi$.
+	\begin{enumerate}[(1)]
+		\item $\lozenge p \leftrightarrow \neg \square \neg p$ \hfill DUAL
+		\item $\lozenge \varphi \leftrightarrow \neg \square \neg \varphi$ \hfill US:(1)
+	\end{enumerate} 
+
+	\item $\varphi = \neg \psi$, $\varphi' = \neg \psi'$.	 We informally claim that the definition of $\psi'$ is clear: For this case, if $\varphi'$ replaces the $i$th $\lozenge$, $\psi'$ does the $i$th. 
+	\begin{enumerate}[(1)]
+		\item $(p \leftrightarrow q) \rightarrow (\neg p \leftrightarrow \neg q)$ \hfill TAUT
+		\item $(\psi \leftrightarrow \psi') \leftrightarrow (\neg \psi \leftrightarrow \neg \psi')$ \hfill US:(1)
+		\item $\psi \leftrightarrow \psi'$ \hfill I.H.
+		\item $\neg \psi \leftrightarrow \neg \psi'$ \hfill MP(2)(3)
+	\end{enumerate}
+	\item $\varphi = \psi * \rho$, $\varphi' = \psi' * \rho$, where $* \in \{\wedge, \vee, \rightarrow, \leftrightarrow\}$. 
+	\begin{enumerate}[(1)]
+			\item $(p \leftrightarrow q) \rightarrow ((p * r )\leftrightarrow (q * r) )$ \hfill TAUT
+		\item $(\psi \leftrightarrow \psi') \rightarrow ((\psi * \rho) \leftrightarrow (\psi' * \rho))$ \hfill US:(1)
+		\item $\psi \leftrightarrow \psi'$ \hfill I.H.
+		\item $(\psi * \rho) \leftrightarrow (\psi' * \rho) $ \hfill MP(2)(3)
+	\end{enumerate}
+	\item $\varphi = \psi * \rho$, $\varphi' = \psi * \rho'$. A similar proof as above holds. 
+	\item $\varphi = \square \psi$, $\varphi' = \square \psi'$. 
+	\begin{enumerate}[(1)]
+	\item $\psi \rightarrow \psi'$ \hfill PL:I.H.
+	\item $\square(\psi \rightarrow \psi')$ \hfill N(1)
+	\item $\square(\psi \rightarrow \psi') \rightarrow (\square \psi \rightarrow \square \psi')$ \hfill US:K
+	\item $\square \psi \rightarrow \square \psi'$ \hfill MP(3)(2)
+	\end{enumerate}
+	Analogously, $\square \psi' \rightarrow \square \psi$. Therefore $\square \psi \leftrightarrow \square \psi'$.  
+	\item $\varphi = \lozenge \psi$ and we are replacing a $\lozenge$ inside $\psi$, then $\varphi' = \lozenge \psi'$.
+	\begin{enumerate}[(1)]
+		\item $\psi \leftrightarrow \psi'$ \hfill I.H.
+		\item $\neg \psi \leftrightarrow \neg \psi'$ \hfill PL:(1)
+		\item $\square \neg \psi \leftrightarrow \square \neg \psi'$ \hfill I.H.(Case 5):(2)
+		\item $\lozenge \psi \leftrightarrow \neg \square \neg \psi$ \hfill I.H.(Case 1)
+		\item $\lozenge \psi' \leftrightarrow \neg \square \neg \psi'$ \hfill I.H.(Case 1)
+		\item $\lozenge \psi \leftrightarrow \lozenge \psi'$ \hfill PL:(3),(4),(5)
+	\end{enumerate}
+	\end{enumerate}
+	
+	Finally we have proved $\vdash_K \varphi \leftrightarrow \varphi'$ holds for any basic modal formula $\varphi$. 
+\end{proof}
+
+%
+\end{document}
