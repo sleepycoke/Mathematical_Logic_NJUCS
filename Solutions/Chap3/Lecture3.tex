@@ -2,9 +2,10 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{hyperref}
+\usepackage{amssymb}
 \author{DING Chao}
 
-\title{Selected Answers to Exercise 3\footnote{This document is maintained on \url{https://github.com/sleepycoke/Mathematical_Logic_NJUCS}}}
+\title{Selected Answers to Exercise 3\footnote{ver 2.0. This document is maintained on \url{https://github.com/sleepycoke/Mathematical_Logic_NJUCS}}}
 \begin{document}
 \maketitle
 \section{P47-13(3)}
@@ -38,7 +39,7 @@ Lemma 1: $\models A \Rightarrow \models \forall x. A$. ($\Leftrightarrow$ indeed
 	By $\models A$, we have for any $(M, \sigma)$, $A_{M[\sigma]} = T$. Therefore for any $a \in M, A_{M[\sigma[x:=a]]} = T$(note that $\sigma[x:=a]$ is one specific assignment of all the $\sigma\,$s), 	which implies $\forall x.A _{M[\sigma]} = T$, aka $M \models _\sigma \forall x.A$ . As a result, since $(M, \sigma)$ is arbitrary, $\models \forall x. A$. 
 \end{proof}
 
-Let $A := (x \doteq y \rightarrow y \doteq x)$, 
+Let $A \triangleq (x \doteq y \rightarrow y \doteq x)$, 
 \begin{align*}
 	 &A_{M[\sigma]}\\
 	=&B_\rightarrow[(x \doteq y)_{M[\sigma]}, (y \doteq x) _{M[\sigma]}]\\
@@ -54,16 +55,20 @@ However, $(x\doteq y)_{M[\sigma]} = T$ implies $\sigma(x) = \sigma(y)$, which im
 \subsection*{$\Rightarrow$}
 \begin{align*}
 	& M\models _\sigma \forall x. A\\
-	\Rightarrow & \text{For all }\sigma(z) \in M, A_{M[\sigma[x:=\sigma(z)]]} = T. \\
-	\Rightarrow&\text{For all }a\in M, \forall z . A[\frac{z}{x}]_{M[\sigma[z:=a]]} = T, \text{ by Lemma 3.24, p40. } \\
-	\Rightarrow &M\models _\sigma\forall z. A[\frac{z}{x}]
+	\Rightarrow & \text{For all }a \in M, A_{M[\sigma[x:=a]]} = T\\
+	\Rightarrow & \text{For all }a \in M, A_{M[\rho[x:=a]]} = T, \text{ since $z$ is fresh in $A$, } \text{ where $\rho \triangleq \sigma[z:=a]$. } \\
+	\Rightarrow & \text{For all }a \in M, A_{M[\rho[x := z_{M[\rho]}]]} = T\\
+	\Rightarrow & \text{For all }a \in M, A[\frac{z}{x}]_{M[\rho]} = T \text{, by Lemma 3.24, p40. }  \\
+	\Rightarrow &M\models _\rho\forall z. A[\frac{z}{x}] \\
+	\Rightarrow &M\models _\sigma\forall z. A[\frac{z}{x}] \text{, since $z \notin FV(\forall z. A[\frac{z}{x}])$. }
 \end{align*}
 \subsection*{$\Leftarrow$}
 \begin{align*}
 	 &M\models _\sigma\forall z. A[\frac{z}{x}]\\
-	\Rightarrow & \text{For all }a \in M, A[\frac{z}{x}]_{M[\rho]} = T, \text{ where $\rho := \sigma[z:=a]$. } \\
+	\Rightarrow &M\models _\rho\forall z. A[\frac{z}{x}] \text{, since $z \notin FV(\forall z. A[\frac{z}{x}])$, }\text{ where $\rho \triangleq \sigma[z:=a]$. } \\
+	\Rightarrow & \text{For all }a \in M, A[\frac{z}{x}]_{M[\rho]} = T \\
 	\Rightarrow & \text{For all }a \in M, A_{M[\rho[x := z_{M[\rho]}]]} = T, \text{ by Lemma 3.24, p40. } \\
-	\Rightarrow & \text{For all }a \in M, A_{M[\rho[x:=a]]} = T. \\
+	\Rightarrow & \text{For all }a \in M, A_{M[\rho[x:=a]]} = T \\
 	\Rightarrow & \text{For all }a \in M, A_{M[\sigma[x:=a]]} = T, \text{ since $z$ is fresh in $A$. } \\
 	\Rightarrow & M\models _\sigma \forall x. A
 \end{align*}
