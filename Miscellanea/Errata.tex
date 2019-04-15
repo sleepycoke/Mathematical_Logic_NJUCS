@@ -11,18 +11,21 @@
 \usepackage[a4paper,top=30mm,bottom=30mm,left=30mm,right=30mm]{geometry}
 
 \begin{document}
-\title{数理逻辑讲义勘误表\footnote{v0.5}}
+\title{数理逻辑讲义勘误表\footnote{v0.6}}
 \author{丁超}
 \maketitle	
 \begin{enumerate}
 \item 书后没有索引
 \item 没有公式相等和逻辑符优先级的定义. 
+\item P18-13,14 P48-15,19,20 由于各公式可能永真，永假，或不独立, 导致结论不一定成立. 
 \item P47-13 $I(~^{-1})$的定义没有加mod; $x_1x_2$ 中间要加 *. 
-\item P49-20 $A$可能永真或永假. 
 \item P47-14(1)就是书上例题但又没有给证明. 有同学写作业就直接当它可用了. 
 \item P90 (9) missing ``)''. 
 \item P41 出现了$y\equiv x$但书上没有定义$\equiv$. 事实上我认为多余定义它, 用"="就够了. 
 \item P41 case 6.1 若$y\equiv x$那么$x$不在$\forall xA$中自由出现, 也就有$(\forall xA)[t/x] = \forall xA$，实际上没有发生替换也就不用这么麻烦证明. 
+\item P48-17 第二个$\Gamma$改为$\Gamma_n$. 
+\item P49-21 没有解释一个公式(集)有模型是指这个模型满足它. 
+\item P55 左上角用了元定理，不是G的规则. 
 \item P87 公式命名不同于出现顺序, 为何不一律以第一个出现的公式为A...
 \item P95 第一行起至本章末尾$G$改为$G'$ . 
 \item 第03讲Slides第27页 有同学反映[*]没有定义. 
@@ -46,8 +49,12 @@
 \item P150 例12.9第4步前面少加了$\Box$. 每行前不要加$\vdash$. 
 \item P121 定义11.1(c)加上$B\subseteq E$. 
 \item P122 命题11.2定义加上$C\subseteq \mathcal{P}(E)$. 
+\item Hauptsatz和紧性定理的证明过程完全不看也不影响做习题. 
+\item P140 ``合式公式(well-formed-formula)''没有定义. 
+\item P148 图12-9, black与grey颜色相近. 
+\item $\leftrightarrow$没有定义. 
 %The followings come from Wu Jun. 
-\item P95 倒数第6行$(T32)$改为$(T22)$. 
+\item (开始由吴骏给出)\\P95 倒数第6行$(T32)$改为$(T22)$. 
 \item P85 第一行''Sklolem"改为''Skolem''. 
 \item P102定理9.7要除去条件$x\notin FV(B)$并重新证明. 
 \item P84第4行``$f(t_1)$"后面加一个``)''. 
@@ -56,22 +63,20 @@
 \item P40 情况1 下一行$M\models_\rho$改为$M\models_\sigma$. 
 \item P40 倒数第3, 4行$\frac{t_1}{t_n}$改为$t_1$. 
 \item P51 规则$\exists R$上矢列后件在$A[t/x]$前少了$\Lambda, $. 
-\item 倒数第三行两处``$\mathscr{L}=$''改成``$\mathscr{L}-$''. 
+\item 倒数第三行两处``$\mathscr{L}=$''改成``$\mathscr{L}-$''. \\
+		(结束由吴骏给出)
 %end of Wu Jun
-\item Hauptsatz和紧性定理的证明过程完全不看也不影响做习题. 
-\item P140 ``合式公式(well-formed-formula)''没有定义. 
-\item P148 图12-9, black与grey颜色相近. 
-\item $\leftrightarrow$没有定义. 
+
 %By Sun Xudong
-\item P68命题6.8没有说明公式集可满足的定义. 是每个公式可以有不同的模型还是要有统一模型. 虽然从证明中可以看出默认的是后者. 
+\item (由孙旭东指出)P68命题6.8没有说明公式集可满足的定义. 是每个公式可以有不同的模型还是要有统一模型. 虽然从证明中可以看出默认的是后者. 
 
 %By Shen Mingjie
-\item P72 (5)第二行, ``由前命题''改成``由命题6.5''; ``只需证若$Con(\Psi_n$''改为``--$Con(\Psi$; (6)$\exists x.A \in \Gamma$改为``$\in \Psi$''. 
+\item (开始由沈明杰指出)\\P72 (5)第二行, ``由前命题''改成``由命题6.5''; ``只需证若$Con(\Psi_n$''改为``--$Con(\Psi$; (6)$\exists x.A \in \Gamma$改为``$\in \Psi$''. 
 \item P118 induction
-\item P84 第四行``$f(t_1)$''后加一个``)''
+\item P84 第四行``$f(t_1)$''后加一个``)''\\(结束由沈明杰指出)
 
 %By Chen Qinlin
-\item P118 引理10.18, 归纳步骤，改为``不妨设P终于度为d的Cut推理''. 
+\item (由陈钦霖指出)P118 引理10.18, 归纳步骤，改为``不妨设P终于度为d的Cut推理''. 
 
 \end{enumerate}
 
