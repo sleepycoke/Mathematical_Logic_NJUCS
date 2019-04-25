@@ -11,17 +11,19 @@
 \usepackage[a4paper,top=30mm,bottom=30mm,left=30mm,right=30mm]{geometry}
 
 \begin{document}
-\title{数理逻辑讲义勘误表\footnote{v0.9}}
+\title{数理逻辑讲义勘误表\footnote{v10}}
 \author{丁超}
 \maketitle	
 \begin{enumerate}
 \item 书后没有索引
 \item 没有公式相等和逻辑符优先级的定义. 
+\item P10 例1.6 子项的等价替换没有证明. 需要在命题1.14的基础上完成证明.或参见\\ \url{https://proofwiki.org/wiki/Substitution_for_Equivalent_Subformula_is_Equivalent}
 \item P18-13,14 P48-15,19,20 由于各公式可能永真，永假，或不独立, 导致结论不一定成立. 
 \item P34定义3.8 “约定...”一行内的$M$都要改成$\mathbb{M}$. 
 \item P34定义3.9(2)改为：“$\mathscr{L}$的一个模型为二元组$(\mathbb{M},\sigma)$, 这里$\mathbb{M}$为$\mathscr{L}$-结构且$\sigma$为$M$上的赋值."
 \item P35定义3.10 $M$都要改成$\mathbb{M}$. 
 \item P36定义3.14 除了(3)中的最后一个$M$,其它$M$都要改成$\mathbb{M}$. 类似错误在本书内不胜枚举，不一一列出. 
+\item P37 P56$\models \Delta$被重定义为$\vdash \Delta$有效和$\Delta$永真. 二者还不等价. (由周涛指出)
 \item P56 命题4.7 1) 两个"任意"改为"某个".(由谢逸指出)
 \item P41 出现了$y\equiv x$但书上没有定义$\equiv$. 事实上我认为多余定义它, 用"="就够了. 
 \item P41 case 6.1 若$y\equiv x$那么$x$不在$\forall xA$中自由出现, 也就有$(\forall xA)[t/x] = \forall xA$，实际上没有发生替换也就不用这么麻烦证明. 
