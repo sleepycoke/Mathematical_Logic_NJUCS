@@ -81,9 +81,9 @@ $$\vdash [(\forall x P(x) \wedge \forall y Q(y)) \rightarrow \exists z P(z)]\lef
 
 $\mathfrak{M} \vDash \exists x \forall y P(x,y)$
 
-$\Rightarrow$存在$a \in M$ 对任何$b\in M$, 有$(a,b)\in P_M$
+$\Rightarrow$存在$a \in M$ 对任何$b\in M$, 有$(a,b)\in P_{\frak{M}}$
 
-$ \Rightarrow$对任何$b\in M$, 有$a\in M$使得$(a,b)\in P_{M}$
+$ \Rightarrow$对任何$b\in M$, 有$a\in M$使得$(a,b)\in P_{\frak{M}}$
 
 $\Rightarrow \mathfrak{M}\vDash \forall y \exists x  P(x,y)$
 \end{proof}
@@ -106,7 +106,7 @@ $\Rightarrow \mathfrak{M}\vDash \forall y \exists x  P(x,y)$
 \section{}
 直接引用陈劭源的答案: 
 \begin{proof}
-构造模型$\mathfrak{M} = (M, \sigma)$，其中$M = \{1, 2\}$，$P_M = \{(1,1), (2,2)\}$，则易验证$\mathfrak{M} \nvDash_\sigma \forall x \exists y P(x, y) \rightarrow \exists y \forall x P(x, y)$，从而$\nvDash\forall x \exists y P(x, y) \rightarrow \exists y \forall x P(x, y)$. 
+构造模型$\mathfrak{M} = (M, \sigma)$，其中$M = \{1, 2\}$，$P_{\frak{M}} = \{(1,1), (2,2)\}$，则易验证\\${\mathfrak{M} \nvDash_\sigma \forall x \exists y P(x, y) \rightarrow \exists y \forall x P(x, y)}$，从而$\nvDash\forall x \exists y P(x, y) \rightarrow \exists y \forall x P(x, y)$. 
 \end{proof}
 
 
@@ -117,9 +117,9 @@ $\Rightarrow \mathfrak{M}\vDash \forall y \exists x  P(x,y)$
 
 $\mathfrak{M} \vDash \forall x P(x,f(x)) $
 
-$\Rightarrow$对任何$a\in M, (a, f_M(a))\in P_M$
+$\Rightarrow$对任何$a\in M, (a, f_\frak{M}(a))\in P_{\frak{M}}$
 
-$\Rightarrow$对任何$a\in M $有$b \in M$使$(a, b)\in P_M$
+$\Rightarrow$对任何$a\in M $有$b \in M$使$(a, b)\in P_{\frak{M}}$
 
 $\Rightarrow \mathfrak{M} \vDash \forall x \exists y  P(x, y)$
 
@@ -151,9 +151,9 @@ $ \forall x \exists y  P(x, y) $可满足
 
 $\Rightarrow$存在结构$\mathfrak{M} \models \forall x \exists y P(x, y)$. 设其论域为$M$. 
 
-$\Rightarrow$对任何$a \in M$有$b \in M$使得$(a, b) \in P_M$. 
+$\Rightarrow$对任何$a \in M$有$b \in M$使得$(a, b) \in P_{\frak{M}}$. 
 
-$\Rightarrow$对任何$a\in M$, $M_a := \{b|(a, b)\in P_M\} \neq \emptyset$.
+$\Rightarrow$对任何$a\in M$, $M_a := \{b|(a, b)\in P_{\frak{M}}\} \neq \emptyset$.
 
 由选择公理知,存在$\tau : \mathcal{P} (M) \backslash \{\emptyset\} \rightarrow M$. 
 
@@ -161,9 +161,9 @@ $\Rightarrow$对任何$a\in M$, $M_a := \{b|(a, b)\in P_M\} \neq \emptyset$.
 
 $\Rightarrow$对任何$a\in M$, $\tau(M_a) \in M_a$ 
 
-$\Rightarrow$对任何$a\in M$, $(a,\tau(M_a)) \in P_M$, 
+$\Rightarrow$对任何$a\in M$, $(a,\tau(M_a)) \in P_{\frak{M}}$, 
 
-$\Rightarrow$令$f_{M'}=\{(a,\tau(M_a))|a \in M\}$, $\mathfrak{M'} = \mathfrak{M} +f_{M'}$.
+$\Rightarrow$令$f_{\frak{M'}}=\{(a,\tau(M_a))|a \in M\}$, $\mathfrak{M'} = \mathfrak{M} +f_{\frak{M'}}$.
 
 那么有$\mathfrak{M'} \vDash \forall x P(x, f(x))$,
 即$\forall x P(x, f(x))$可满足. 
@@ -172,7 +172,7 @@ $\Rightarrow$令$f_{M'}=\{(a,\tau(M_a))|a \in M\}$, $\mathfrak{M'} = \mathfrak{M
 
 下面给出陈劭源的一个更具体的证明: 
 \begin{proof}
-	构造模型$\mathfrak{M} = (M, \sigma)$, 其中$M = \{0\}$，$P_M = \{(0, 0)\}$，$f_{M'}(0) = 0$, $\mathfrak{M'} = \mathfrak{M} + f_{M'}$. 则易验证$\mathfrak{M} \models \forall x \exists y P(x, y)$和$\mathfrak{M'} \models \forall x P(x, f(x))$. 从而$\forall x \exists y P(x, y)$可满足$\Rightarrow$ $\forall x P(x, f(x))$可满足. 
+	构造模型$\mathfrak{M} = (M, \sigma)$, 其中$M = \{0\}$，$P_{\frak{M}} = \{(0, 0)\}$，$f_{\frak{M'}}(0) = 0$, $\mathfrak{M'} = \mathfrak{M} + f_{\frak{M'}}$. 则易验证$\mathfrak{M} \models \forall x \exists y P(x, y)$和$\mathfrak{M'} \models \forall x P(x, f(x))$. 从而$\forall x \exists y P(x, y)$可满足$\Rightarrow$ $\forall x P(x, f(x))$可满足. 
 \end{proof}
 
 读到这里想必你已经发现，由于此题的两个公式给得太具体了，我们只要证出以下命题之一就足够

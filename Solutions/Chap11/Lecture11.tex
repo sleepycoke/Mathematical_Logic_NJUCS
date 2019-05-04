@@ -18,7 +18,7 @@
 %\date{}
 \begin{document}
 
-\title{数理逻辑第十一讲习题参考答案\footnote{Ver. 0.4. 原答案由宋方敏教授给出手稿, 乔羽同学录入, 最后由丁超同学修订补充. 此文档来源为\url{https://github.com/sleepycoke/Mathematical_Logic_NJUCS}由于时间紧张，丁超只更正了比较明显的笔误, 没有仔细验证, 见谅. 
+\title{数理逻辑第十一讲习题参考答案\footnote{Ver. 0.5. 原答案由宋方敏教授给出手稿, 乔羽同学录入, 最后由丁超同学修订补充. 此文档来源为\url{https://github.com/sleepycoke/Mathematical_Logic_NJUCS}由于时间紧张，丁超只更正了比较明显的笔误, 没有仔细验证, 见谅. 
  欢迎各位同学提出意见共同维护. 
 }}
 \maketitle
@@ -95,9 +95,9 @@ $\{a_i |i\in I\}$,这里$|I|\geq \aleph_0$.
 
 (1)常元:$\{a_i | i\in I\}$
 
-(2)一元谓词：$C_k (x) (k=1,2,3,4)$\{$C_k (x)$表示$x$着$k$色\}
+(2)一元谓词符：$C_k (x) (k=1,2,3,4)$\quad($C_k (x)$表示$x$着$k$色)
 
-(3)二元谓词：$g(x,y)$\{$g(x,y)$表示$x$与$y$有大于0的公共边界\}.
+(3)二元谓词符：$g(x,y)$\quad($g(x,y)$表示$x$与$y$有大于0的公共边界).
 
 令$Q \triangleq \{<i,j>|i,j\in I\}$且在MAP中$a_i$与$a_j$有大于0的公共边界.
 
@@ -113,9 +113,9 @@ $\cup\{ \forall x \forall y (q(x, y)\rightarrow (\neg (c_1(x)\wedge c_1(y))  \we
 
 为出现在$S$中的全体常元，令$M=\{a_0,...,a_n\},MAP[s]$为$\{a_0,\dots,a_n\}$的生成子图. 	从而$MAP[s]$可着4色. 
 
-令$C_{kM} \triangleq \{a_i|a_i$着$k$色$i\leq n\}k=1,...,4$
+令$(C_{k})_\frak{M} \triangleq \{a_i|a_i$着$k$色$i\leq n\}k=1,...,4$
 
-$q_M =\{<a_i,a_j>|<i,j>\in Q\}$从而$\mathfrak{M} \vDash S$
+$q_\frak{M} =\{<a_i,a_j>|<i,j>\in Q\}$从而$\mathfrak{M} \vDash S$
 
 由compactness知有$\mathfrak{M}$使$\mathfrak{M}\vDash \Gamma $即$MAP$可4染色.
 
@@ -153,13 +153,13 @@ $\Sigma' \triangleq \Sigma \cup \{R (c_{n+1},c_n),\neg (c_{n+1}\doteq c_n)| n\in
 
 模型 ，从而$\Sigma'$有模型，设为$\mathfrak{M}$. 因此
 
-$\mathfrak{M} \vDash \Sigma$. 令$R_M$为$<$, $(c_n)_M$为$a_n$从而
+$\mathfrak{M} \vDash \Sigma$. 令$R_\frak{M}$为$<$, $(c_n)_\frak{M}$为$a_n$从而
 
 $a_0>a_1>a_2...$为无穷下降链，从而
 
 $\{a_n | n \in \mathbb{N}\}$ 没有最小元.
 
-故$R_M$并非$M$上的良序.矛盾
+故$R_\frak{M}$并非$M$上的良序.矛盾
 
 
 \end{document}
