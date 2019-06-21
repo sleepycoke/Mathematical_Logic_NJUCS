@@ -18,7 +18,7 @@
 %\date{}
 \begin{document}
 
-\title{数理逻辑第十一讲习题参考答案\footnote{Ver. 0.5. 原答案由宋方敏教授给出手稿, 乔羽同学录入, 最后由丁超同学修订补充. 此文档来源为\url{https://github.com/sleepycoke/Mathematical_Logic_NJUCS}由于时间紧张，丁超只更正了比较明显的笔误, 没有仔细验证, 见谅. 
+\title{数理逻辑第十一讲习题参考答案\footnote{Ver. 0.6. 原答案由宋方敏教授给出手稿, 乔羽同学录入, 最后由丁超同学修订补充. 此文档来源为\url{https://github.com/sleepycoke/Mathematical_Logic_NJUCS}由于时间紧张，丁超只更正了比较明显的笔误, 没有仔细验证, 见谅. 
  欢迎各位同学提出意见共同维护. 
 }}
 \maketitle
@@ -29,15 +29,15 @@
 
 从而有$k \in \mathbb{N} $使得
 
-$\Delta \subseteq \{ (x > S^n0) | n=0,1,2,..,k\}$
+$\Delta \subseteq \{ (x > S^nO) | n=0,1,2,..,k\}$
 
-设$N = \{ \mathbb{N},0,Suc , >  \}$ 为算术的标准模型
+设$N = \{ \mathbb{N},O,Suc , >  \}$ 为算术的标准模型
 
 其中$ Suc (x) =x+1 $, $ > $为大于关系
 
 令$\sigma$ 为$\mathbb{N}$上赋值使$\sigma (x) = k+1$
 
-从而$N \vDash_\sigma (x>S^n(0))(n=0,1,2,..,k)$
+从而$N \vDash_\sigma (x>S^n(O))(n=0,1,2,..,k)$
 
 故$N \vDash_\sigma \Delta$即$\Delta$可满足
 
@@ -126,12 +126,14 @@ $m <|M| < \aleph_0$ 且$\mathfrak{M}\vDash \neg  \varphi $
 
 令 $\varphi_n$ 为 $\exists x_1 \exists x_2 ... \exists x_n (\bigwedge_{0<i<j\leq n}\neg (x_i \doteq x_j))$
 
-易见(1)$ \mathfrak{M}\vDash \varphi_n \Rightarrow |M|\geq n$. (2)当$m<n$时,$\mathfrak{M}\vDash \varphi_n \Rightarrow \mathfrak{M}\vDash \varphi_m$ 
+易见\\
+(1)$ \mathfrak{M}\vDash \varphi_n \Rightarrow |M|\geq n$. \\
+(2)当$m<n$时,$\mathfrak{M}\vDash \varphi_n \Rightarrow \mathfrak{M}\vDash \varphi_m$ \\
 (3)$\mathfrak{M}\vDash \{\varphi_1,\varphi_2...\} \Rightarrow |M|\geq \aleph_0$
-
+\\
 令$\Gamma \triangleq \{ \neg  \varphi, \varphi_1, ..., \varphi_n ,...\} = \{ \neg \varphi \}\cup \{\varphi_n |n \in N^+\}$
 
-对于有穷集$S \subseteq \Gamma$, 有$k$使$S\subseteq \{ \neg  \varphi, \varphi_1, ..., \varphi_k ,...\} $
+对于有穷集$S \subseteq \Gamma$, 有$k$使$S\subseteq \{ \neg  \varphi, \varphi_1, ..., \varphi_k\} $
 
 从而由反设知$S$有模型,因此由紧致定理知,$\Gamma$ 有模型,设为$\mathfrak{M'} = (M',I')$,从而
 
