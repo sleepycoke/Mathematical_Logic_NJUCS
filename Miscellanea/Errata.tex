@@ -11,22 +11,28 @@
 \usepackage[a4paper,top=30mm,bottom=30mm,left=30mm,right=30mm]{geometry}
 
 \begin{document}
-\title{数理逻辑讲义勘误表\footnote{v10}}
+\title{数理逻辑讲义勘误表\footnote{v14. 此文档在 \url{ https://github.com/sleepycoke/Mathematical_Logic_NJUCS} 维护}}
 \author{丁超}
 \maketitle	
 \begin{enumerate}
 \item 书后没有索引
+\item 没有指明引用参照文献的地方.
 \item 没有公式相等和逻辑符优先级的定义. 
 \item P10 例1.6 子项的等价替换没有证明. 需要在命题1.14的基础上完成证明.或参见\\ \url{https://proofwiki.org/wiki/Substitution_for_Equivalent_Subformula_is_Equivalent}
+\item P12 第4行$A_n$改成$A_m$. (由吴骏给出)
 \item P18-13,14 P48-15,19,20 由于各公式可能永真，永假，或不独立, 导致结论不一定成立. 
 \item P34定义3.8 “约定...”一行内的$M$都要改成$\mathbb{M}$. 
 \item P34定义3.9(2)改为：“$\mathscr{L}$的一个模型为二元组$(\mathbb{M},\sigma)$, 这里$\mathbb{M}$为$\mathscr{L}$-结构且$\sigma$为$M$上的赋值."
 \item P35定义3.10 $M$都要改成$\mathbb{M}$. 
 \item P36定义3.14 除了(3)中的最后一个$M$,其它$M$都要改成$\mathbb{M}$. 类似错误在本书内不胜枚举，不一一列出. 
 \item P37 P56$\models \Delta$被重定义为$\vdash \Delta$有效和$\Delta$永真. 二者还不等价. (由周涛指出)
-\item P56 定义4.6 (1) 最后\((\bigvee\limits_{j=1}^m B_j)\)前面加上\(\models\).
+\item P39 倒数第三行两处``$\mathscr{L}\ne$''改成``$\mathscr{L}-$''. (由吴骏给出)
+\item P40 情况1 下一行$M\models_\rho$改为$M\models_\sigma$. (由吴骏给出)
+\item P40 倒数第3, 4行$\frac{t_1}{t_n}$改为$t_1$. (由吴骏给出)\item P56 定义4.6 (1) 最后\((\bigvee\limits_{j=1}^m B_j)\)前面加上\(\models\).(由董杨静提交)
+\item P48-19(1)$\leftrightarrow$没有定义. 而且不是永真式. (由董杨静指出)
+\item P51 规则$\exists R$上矢列后件在$A[t/x]$前少了$\Lambda, $. (由吴骏给出)
 \item P56 命题4.7 1) 两个"任意"改为"某个".(由谢逸指出)
-\item P56 命题4.7 1) 最后的\(B_i\)改为\(B_j\).
+\item P56 命题4.7 1) 最后的\(B_i\)改为\(B_j\).(由董杨静提交)
 \item P41 出现了$y\equiv x$但书上没有定义$\equiv$. 事实上我认为多余定义它, 用"="就够了. 
 \item P41 case 6.1 若$y\equiv x$那么$x$不在$\forall xA$中自由出现, 也就有$(\forall xA)[t/x] = \forall xA$，实际上没有发生替换也就不用这么麻烦证明. 
 \item P47-13 $I(~^{-1})$的定义没有加mod; $x_1x_2$ 中间要加 *. 
@@ -36,6 +42,7 @@
 \item P55 左上角用了元定理，不是G的规则. 
 %By Sun Xudong
 \item (由孙旭东指出)P68命题6.8没有说明公式集可满足的定义. 是每个公式可以有不同的模型还是要有统一模型. 虽然从证明中可以看出默认的是后者. 
+\item P69定义6.10(1)(2)删除开头的两个``若''. (由吴骏给出)
 \item P72 第三行将c换成y没有说明得到的还是证明树
 \item P73 定理6.19 $\Gamma$和$\Psi$不在同一个语言内，要说明$\Gamma$的模型如何由$\Psi$的模型得到. 
 %By Shen Mingjie
@@ -44,16 +51,23 @@
 \item P80定义7.9前一行L-闭项没有定义，我认为是没有变元的项. 
 \item P82第二行闭项没有定义，我认为是闭公式. 
 \item P84 第四行``$f(t_1)$''后加一个``)''(由沈明杰指出)
+\item P84第4行``$f(t_1)$"后面加一个``)''. (由吴骏给出)
+\item P85 第一行''Sklolem"改为''Skolem''. (由吴骏给出)
 \item P87 公式命名不同于出现顺序, 为何不一律以第一个出现的公式为A...
+\item P88 $T15$不应有$\vdash$. 按照P87定义8.1(3)定理是公式. 类似问题不胜枚举,不再赘述. 
+\item P92 $T21$是元定理, 用$T$编号是不合适的. 
 \item P90 (9) missing ``)''. 
 \item P95 第一行起至本章末尾$G$改为$G'$ . 
+\item P95 倒数第6行$(T32)$改为$(T22)$. (由吴骏给出)
 \item 第03讲Slides第27页 有同学反映[*]没有定义. 
+\item P102定理9.7要除去条件$x\notin FV(B)$并重新证明. (由吴骏给出)
 \item P103 第5行 (c为新变元) 改为 (c为新常元)
 \item 第十讲P108 定义10.5约定(1)A(t)表示A(t), 本页倒数第二行前件多个A. 
 %By Chen Qinlin
 \item P118 引理10.18, 归纳步骤，改为``不妨设P终于度为d的Cut推理''. (由陈钦霖指出)
 \item P121 定义11.1(c)加上$B\subseteq E$. 
 \item P122 命题11.2定义加上$C\subseteq \mathcal{P}(E)$. 
+\item P134 第5题第二行$\mathbb{M}\models(\mathbf{M}, \mathbf{I})$改为$\mathbb{M}=(\mathbf{M}, \mathbf{I})$
 \item P138 倒数第三行 $\exists s \in S$改成 $\exists t \in S$. 
 \item P141第一行多个$\bot$ 倒数第二行$\psi_1 \psi_2$改成$\varphi_1 \varphi_2$. 
 \item P136定义12.1 第二行``$\mathfrak{F}$上的关系''改成``$W$上的关系''. 
@@ -72,19 +86,7 @@
 
 \item Hauptsatz和紧性定理的证明过程完全不看也不影响做习题. 
 
-\item $\leftrightarrow$没有定义. 
-%The followings come from Wu Jun. 
-\item (开始由吴骏给出)\\P12 第4行$A_n$改成$A_m$. 
-\item P39 倒数第三行两处``$\mathscr{L}\ne$''改成``$\mathscr{L}-$''. 
-\item P40 情况1 下一行$M\models_\rho$改为$M\models_\sigma$. 
-\item P40 倒数第3, 4行$\frac{t_1}{t_n}$改为$t_1$. 
-\item P51 规则$\exists R$上矢列后件在$A[t/x]$前少了$\Lambda, $. 
-\item P69定义6.10(1)(2)删除开头的两个``若''. 
-\item P84第4行``$f(t_1)$"后面加一个``)''. 
-\item P85 第一行''Sklolem"改为''Skolem''. 
-\item P95 倒数第6行$(T32)$改为$(T22)$. 
-\item P102定理9.7要除去条件$x\notin FV(B)$并重新证明. \\(结束由吴骏给出)
-%end of Wu Jun
+
 
 
 
